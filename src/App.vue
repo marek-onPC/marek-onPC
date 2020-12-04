@@ -15,15 +15,11 @@
 
       <v-spacer></v-spacer>
 
-      <!-- <v-text-field
-      fixed
-      label="Search"
-      clearable
-      dense
-      class="mt-5 mr-5"
+      <v-btn
+      icon
+      tile
+      @click="searchSnackBar = !searchSnackBar"
       >
-      </v-text-field> -->
-      <v-btn icon tile>
         <v-icon>
           mdi-magnify
         </v-icon>
@@ -31,7 +27,7 @@
 
       <template v-slot:extension>
         <v-tabs centered>
-          <v-tabs-slider color="accent"></v-tabs-slider>
+          <v-tabs-slider color="secondary"></v-tabs-slider>
           <v-tab to="/">.home</v-tab>
           <v-tab to="/programming">.programming</v-tab>
           <v-tab to="/baking">.baking</v-tab>
@@ -41,6 +37,33 @@
       </template>
 
     </v-app-bar>
+
+    <v-snackbar
+    tile
+    top
+    timeout="-1"
+    v-model="searchSnackBar"
+    >
+      <div class="d-flex align-center">
+        <v-text-field
+        label="Search"
+        dense
+        color="secondary"
+        class="mt-2 mr-5"
+        >
+        </v-text-field>
+        <v-btn
+        icon
+        tile
+        @click="searchSnackBar = false"
+        >
+          <v-icon>
+            mdi-close
+          </v-icon>
+        </v-btn>
+      </div>
+    </v-snackbar>
+
     <v-main style="margin-top: 225px">
       <HelloWorld/>
     </v-main>
@@ -58,6 +81,7 @@ export default {
   },
 
   data: () => ({
+    searchSnackBar: false
     //
   })
 }
