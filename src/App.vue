@@ -1,32 +1,64 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar
+    fixed
+    color="primary"
+    dark
+    shrink-on-scroll
+    src="https://picsum.photos/1920/1080?random"
+    fade-img-on-scroll
+    elevation="2"
+    >
+      <v-toolbar-title class="py-0">
+        <h2 class="font-weight-thin blue--gray" to="/" >marek <span class="font-weight-regular">onPC</span></h2>
+      </v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <!-- <v-text-field
+      fixed
+      label="Search"
+      clearable
+      dense
+      class="mt-5 mr-5"
+      >
+      </v-text-field> -->
+      <v-btn icon tile>
+        <v-icon>
+          mdi-magnify
+        </v-icon>
+      </v-btn>
+
+      <template v-slot:extension>
+        <v-tabs centered>
+          <v-tabs-slider color="accent"></v-tabs-slider>
+          <v-tab to="/">.home</v-tab>
+          <v-tab to="/programming">.programming</v-tab>
+          <v-tab to="/baking">.baking</v-tab>
+          <v-tab to="/trips">.trips</v-tab>
+          <v-tab to="/about">.about</v-tab>
+        </v-tabs>
+      </template>
+
+    </v-app-bar>
+    <v-main style="margin-top: 225px">
+      <HelloWorld/>
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import HelloWorld from './components/HelloWorld'
+
+export default {
+  name: 'App',
+
+  components: {
+    HelloWorld
+  },
+
+  data: () => ({
+    //
+  })
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+</script>
