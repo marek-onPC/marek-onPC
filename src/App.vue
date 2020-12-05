@@ -4,10 +4,12 @@
     fixed
     color="primary"
     dark
+    extension-height="42"
     shrink-on-scroll
-    src="https://picsum.photos/1920/1080?random"
+    src="@/assets/blog_wallpaper.jpg"
     fade-img-on-scroll
     elevation="2"
+    height="150"
     >
       <v-toolbar-title class="py-0">
         <h2 class="font-weight-thin blue--gray" to="/" >marek <span class="font-weight-regular">onPC</span></h2>
@@ -26,12 +28,18 @@
       </v-btn>
 
       <template v-slot:extension>
-        <v-tabs centered>
+        <v-tabs
+        light
+        centered
+        slider-size="3"
+        show-arrows
+        background-color="primary"
+        >
           <v-tabs-slider color="secondary"></v-tabs-slider>
           <v-tab to="/">.home</v-tab>
           <v-tab to="/programming">.programming</v-tab>
           <v-tab to="/baking">.baking</v-tab>
-          <v-tab to="/trips">.trips</v-tab>
+          <v-tab to="/trips">.trip</v-tab>
           <v-tab to="/about">.about</v-tab>
         </v-tabs>
       </template>
@@ -44,7 +52,7 @@
     timeout="-1"
     v-model="searchSnackBar"
     >
-      <div class="d-flex align-center">
+      <div class="d-flex align-center justify-center">
         <v-text-field
         label="Search"
         dense
@@ -64,22 +72,26 @@
       </div>
     </v-snackbar>
 
-    <v-main style="margin-top: 225px">
-      <HelloWorld/>
+    <v-main style="margin-top: 235px">
+      <router-view></router-view>
     </v-main>
+
+    <v-footer
+    dark
+    color="primary"
+    class="d-flex justify-center align-center"
+    >
+      <div>
+        <p class="ma-0">{{ new Date().getFullYear() }} - marek  <strong>onPC</strong></p>
+      </div>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
 
 export default {
   name: 'App',
-
-  components: {
-    HelloWorld
-  },
-
   data: () => ({
     searchSnackBar: false
     //
