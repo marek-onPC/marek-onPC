@@ -73,7 +73,9 @@
     </v-snackbar>
 
     <v-main style="margin-top: 235px">
-      <router-view></router-view>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
     </v-main>
 
     <v-footer

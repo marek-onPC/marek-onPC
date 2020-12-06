@@ -1,17 +1,101 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Home"/>
+    <!-- Loading spinner -->
+    <div class="d-flex justify-center mt-15" v-if="homePosts == ''">
+      <v-progress-circular
+      indeterminate
+      color="primary"
+      ></v-progress-circular>
+    </div>
+
+    <!-- Loaded content -->
+    <div class="d-flex flex-wrap justify-center my-10 px-15" v-if="homePosts != ''">
+      <div
+      v-for="(post, index) in homePosts"
+      :key="post.id"
+      class="pa-5"
+      :class="{ 'col-lg-7 col-sm-6': index === 0, 'col-lg-5 col-sm-6': index === 1, 'col-lg-4 col-sm-6': index > 1 }"
+      >
+        <v-card
+        href="/"
+        tile
+        hover
+        height="100%"
+        >
+          <!-- Needs to have Better REST API Featured Images plugin installed on your WP backend site -->
+          <v-img
+          :src="post.better_featured_image.source_url"
+          height="250px"
+          class="white--text align-end"
+          >
+            <v-card-title><h2> {{ post.title.rendered }} </h2></v-card-title>
+          </v-img>
+          <div class="d-flex justify-end">
+            <v-chip
+            label
+            small
+            color="secondary"
+            class="ma-2"
+            >
+              <v-icon left small>
+                mdi-label
+              </v-icon>
+              {{ post.categories }}
+            </v-chip>
+            <v-chip
+            label
+            small
+            color="secondary"
+            class="ma-2"
+            >
+              <v-icon left small>
+                mdi-calendar
+              </v-icon>
+              {{ post.date }}
+            </v-chip>
+          </div>
+          <v-divider></v-divider>
+          <v-card-text v-html="post.excerpt.rendered">
+            {{ post.excerpt.rendered }}
+          </v-card-text>
+        </v-card>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+const axios = require('axios').default
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  data () {
+    return {
+      homePosts: []
+    }
+  },
+  methods: {
+    getWpPosts () {
+      axios.get('https://marek-onpc.com/wp-json/wp/v2/posts')
+        .then(function (response) {
+          return response.data
+        })
+        .then(data => {
+          if (data) {
+            this.homePosts = data.slice(0, 5)
+            console.log(this.posts)
+          }
+        })
+        .catch(function (error) {
+          console.log(error)
+          this.getWpPosts()
+        })
+    }
+  },
+  created () {
+    this.getWpPosts()
   }
 }
 </script>
