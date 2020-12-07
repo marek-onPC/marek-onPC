@@ -75,13 +75,6 @@
         </v-btn>
       </div>
     </v-container>
-
-    <template>
-      <v-parallax
-      height="250"
-      src="@/assets/material-design-wallpaper.png"></v-parallax>
-    </template>
-
   </div>
 </template>
 
@@ -98,7 +91,7 @@ export default {
   },
   methods: {
     getWpPosts () {
-      axios.get('https://marek-onpc.com/wp-json/wp/v2/postss')
+      axios.get('https://marek-onpc.com/wp-json/wp/v2/posts')
         .then(function (response) {
           return response.data
         })

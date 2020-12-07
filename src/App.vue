@@ -76,6 +76,12 @@
         <router-view></router-view>
     </v-main>
 
+    <template>
+      <v-parallax
+      height="250"
+      src="@/assets/material-design-wallpaper.png"></v-parallax>
+    </template>
+
     <v-footer
     dark
     color="primary"
