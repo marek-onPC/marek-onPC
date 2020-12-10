@@ -29,7 +29,7 @@
             height="250px"
             class="white--text align-end"
             >
-              <v-card-title><h2> {{ post.title.rendered }} </h2></v-card-title>
+              <v-card-title style="background-color: rgba(0, 0, 0, 0.5);"><h2> {{ post.title.rendered }} </h2></v-card-title>
             </v-img>
             <div class="d-flex justify-end">
               <v-chip
@@ -91,24 +91,43 @@ export default {
   },
   methods: {
     getWpPosts () {
-      axios.get('https://marek-onpc.com/wp-json/wp/v2/posts')
+      axios.get('http://localhost:8888/wp-json/wp/v2/posts')
         .then(function (response) {
           return response.data
         })
         .then(data => {
           if (data) {
             this.homePosts = data.slice(0, 5)
-            console.log(this.posts)
           }
         })
-        .catch(function (error) {
+        .catch(error => {
           console.log(error)
-          this.getWpPosts()
+          setTimeout(() => {
+            this.getWpPosts()
+          }, 2500)
         })
     }
   },
   created () {
     this.getWpPosts()
+  },
+  watch: {
+    homePosts: function () {
+      this.homePosts.forEach(post => {
+        switch (post.categories[0]) {
+          case 55:
+            post.categories = 'Programming'
+            break
+          case 56:
+            post.categories = 'Baking'
+            break
+          case 57:
+            post.categories = 'Trips'
+            break
+        }
+        post.date = post.date.split('T')[0]
+      })
+    }
   }
 }
 </script>
