@@ -114,8 +114,8 @@ export default {
         })
     },
     loadMoreWpPosts () {
-      if (this.allPosts !== '') {
-        window.onscroll = () => {
+      window.onscroll = () => {
+        if (this.allPosts !== '' && window.location.pathname === '/') {
           const scrollTrigger = document.documentElement.scrollTop + window.innerHeight
           const bottomOfMain = document.getElementsByClassName('home')[0].scrollHeight
 
