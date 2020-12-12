@@ -63,13 +63,12 @@
         </div>
       </div>
 
-      <div class="d-flex justify-end align-center mb-15" v-if="homePosts != ''">
+      <div class="d-flex justify-end align-center mb-15" v-if="(homePosts != '') && (morePosts === false)">
         <v-btn
         tile
         large
-        link
         color="secondary"
-        href="/"
+        @click="morePosts = true; postsToLoad = postsToLoad + 3; homePosts = allPosts.slice(0, postsToLoad)"
         >
           More articles...
         </v-btn>
@@ -86,7 +85,10 @@ export default {
   name: 'Home',
   data () {
     return {
-      homePosts: []
+      allPosts: [],
+      homePosts: [],
+      morePosts: false,
+      postsToLoad: 5
     }
   },
   methods: {
@@ -97,7 +99,11 @@ export default {
         })
         .then(data => {
           if (data) {
-            this.homePosts = data.slice(0, 5)
+            this.allPosts = data
+            // this.allPosts = data.reduce(function (res, current, index, array) {
+            //   return res.concat([current, current])
+            // }, [])
+            this.homePosts = this.allPosts.slice(0, 5)
           }
         })
         .catch(error => {
@@ -106,6 +112,19 @@ export default {
             this.getWpPosts()
           }, 2500)
         })
+    },
+    loadMoreWpPosts () {
+      if (this.allPosts !== '') {
+        window.onscroll = () => {
+          const scrollTrigger = document.documentElement.scrollTop + window.innerHeight
+          const bottomOfMain = document.getElementsByClassName('home')[0].scrollHeight
+
+          if (scrollTrigger > bottomOfMain + 100) {
+            this.postsToLoad = this.postsToLoad + 3
+            this.homePosts = this.allPosts.slice(0, this.postsToLoad)
+          }
+        }
+      }
     }
   },
   created () {
@@ -127,6 +146,11 @@ export default {
         }
         post.date = post.date.split('T')[0]
       })
+    },
+    morePosts: function () {
+      if (this.morePosts === true) {
+        this.loadMoreWpPosts()
+      }
     }
   }
 }
