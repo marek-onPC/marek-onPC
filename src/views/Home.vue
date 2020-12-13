@@ -10,58 +10,60 @@
       </div>
 
       <!-- Loaded content -->
-      <div class="d-flex flex-wrap justify-center my-10 px-md-15" v-if="homePosts != ''">
-        <div
-        v-for="(post, index) in homePosts"
-        :key="post.id"
-        class="pa-5"
-        :class="{ 'col-lg-7 col-sm-6': index === 0, 'col-lg-5 col-sm-6': index === 1, 'col-lg-4 col-sm-6': index > 1 }"
-        >
-          <v-card
-          href="/"
-          tile
-          hover
-          height="100%"
+      <transition name="posts-cards">
+        <transition-group name="posts-cards" class="d-flex flex-wrap justify-center my-10 px-md-15" v-if="homePosts != ''">
+          <div
+          v-for="(post, index) in homePosts"
+          :key="post.id"
+          class="pa-5"
+          :class="{ 'col-lg-7 col-sm-6': index === 0, 'col-lg-5 col-sm-6': index === 1, 'col-lg-4 col-sm-6': index > 1 }"
           >
-            <!-- Needs to have Better REST API Featured Images plugin installed on your WP backend site to load images easly like this -->
-            <v-img
-            :src="post.better_featured_image.source_url"
-            height="250px"
-            class="white--text align-end"
+            <v-card
+            href="/"
+            tile
+            hover
+            height="100%"
             >
-              <v-card-title style="background-color: rgba(0, 0, 0, 0.5);"><h2> {{ post.title.rendered }} </h2></v-card-title>
-            </v-img>
-            <div class="d-flex justify-end">
-              <v-chip
-              label
-              small
-              color="secondary"
-              class="ma-2"
+              <!-- Needs to have Better REST API Featured Images plugin installed on your WP backend site to load images easly like this -->
+              <v-img
+              :src="post.better_featured_image.source_url"
+              height="250px"
+              class="white--text align-end"
               >
-                <v-icon left small>
-                  mdi-label
-                </v-icon>
-                {{ post.categories }}
-              </v-chip>
-              <v-chip
-              label
-              small
-              color="secondary"
-              class="ma-2"
-              >
-                <v-icon left small>
-                  mdi-calendar
-                </v-icon>
-                {{ post.date }}
-              </v-chip>
-            </div>
-            <v-divider></v-divider>
-            <v-card-text v-html="post.excerpt.rendered">
-              {{ post.excerpt.rendered }}
-            </v-card-text>
-          </v-card>
-        </div>
-      </div>
+                <v-card-title style="background-color: rgba(0, 0, 0, 0.5);"><h2> {{ post.title.rendered }} </h2></v-card-title>
+              </v-img>
+              <div class="d-flex justify-end">
+                <v-chip
+                label
+                small
+                color="secondary"
+                class="ma-2"
+                >
+                  <v-icon left small>
+                    mdi-label
+                  </v-icon>
+                  {{ post.categories }}
+                </v-chip>
+                <v-chip
+                label
+                small
+                color="secondary"
+                class="ma-2"
+                >
+                  <v-icon left small>
+                    mdi-calendar
+                  </v-icon>
+                  {{ post.date }}
+                </v-chip>
+              </div>
+              <v-divider></v-divider>
+              <v-card-text v-html="post.excerpt.rendered">
+                {{ post.excerpt.rendered }}
+              </v-card-text>
+            </v-card>
+          </div>
+        </transition-group>
+      </transition>
 
       <div class="d-flex justify-end align-center mb-15" v-if="(homePosts != '') && (morePosts === false)">
         <v-btn
@@ -155,3 +157,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.posts-cards-enter-active {
+  transition: all 1s;
+}
+
+.posts-cards-enter {
+  opacity: 0;
+  transform: translateY(-75px) scale(0.925);
+}
+</style>

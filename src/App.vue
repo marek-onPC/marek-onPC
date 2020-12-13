@@ -12,20 +12,12 @@
     height="150"
     >
       <v-toolbar-title class="py-0">
-        <h2 class="font-weight-thin blue--gray" to="/" >marek <span class="font-weight-regular">onPC</span></h2>
+        <h2 class="font-weight-thin blue--gray">marek <span class="font-weight-regular">onPC</span></h2>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-      icon
-      tile
-      @click="searchSnackBar = !searchSnackBar"
-      >
-        <v-icon>
-          mdi-magnify
-        </v-icon>
-      </v-btn>
+      <SearchDialog/>
 
       <template v-slot:extension>
         <v-tabs
@@ -45,32 +37,6 @@
       </template>
 
     </v-app-bar>
-
-    <v-snackbar
-    tile
-    top
-    timeout="-1"
-    v-model="searchSnackBar"
-    >
-      <div class="d-flex align-center justify-center">
-        <v-text-field
-        label="Search"
-        dense
-        color="secondary"
-        class="mt-2 mr-5"
-        >
-        </v-text-field>
-        <v-btn
-        icon
-        tile
-        @click="searchSnackBar = false"
-        >
-          <v-icon>
-            mdi-close
-          </v-icon>
-        </v-btn>
-      </div>
-    </v-snackbar>
 
     <v-main style="margin-top: 235px">
         <router-view></router-view>
@@ -95,12 +61,12 @@
 </template>
 
 <script>
+import SearchDialog from '@/components/SearchDialog.vue'
 
 export default {
   name: 'App',
-  data: () => ({
-    searchSnackBar: false
-    //
-  })
+  components: {
+    SearchDialog
+  }
 }
 </script>
