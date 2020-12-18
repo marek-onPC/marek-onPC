@@ -19,7 +19,7 @@
           :class="{ 'col-lg-7 col-sm-6': index === 0, 'col-lg-5 col-sm-6': index === 1, 'col-lg-4 col-sm-6': index > 1 }"
           >
             <v-card
-            href="/"
+            :to="'/post?id=' + post.id"
             tile
             hover
             height="100%"
@@ -70,7 +70,7 @@
         tile
         large
         color="secondary"
-        @click="morePosts = true; postsToLoad = postsToLoad + 3; homePosts = allPosts.slice(0, postsToLoad)"
+        @click="morePosts = true; postsToLoad = postsToLoad + postsPerScreenWidth; homePosts = allPosts.slice(0, postsToLoad)"
         >
           More articles...
         </v-btn>
@@ -90,7 +90,8 @@ export default {
       allPosts: [],
       homePosts: [],
       morePosts: false,
-      postsToLoad: 5
+      postsToLoad: 5,
+      postsPerScreenWidth: 0
     }
   },
   methods: {
@@ -122,14 +123,24 @@ export default {
           const bottomOfMain = document.getElementsByClassName('home')[0].scrollHeight
 
           if (scrollTrigger > bottomOfMain + 100) {
-            this.postsToLoad = this.postsToLoad + 3
+            this.postsToLoad = this.postsToLoad + this.postsPerScreenWidth
             this.homePosts = this.allPosts.slice(0, this.postsToLoad)
           }
         }
       }
+    },
+    setPostsPerScreenWidth () {
+      if (window.innerWidth > 1263) {
+        this.postsPerScreenWidth = 3
+      } else if (window.innerWidth > 600 && window.innerWidth <= 1263) {
+        this.postsPerScreenWidth = 2
+      } else {
+        this.postsPerScreenWidth = 1
+      }
     }
   },
   created () {
+    this.setPostsPerScreenWidth()
     this.getWpPosts()
   },
   watch: {

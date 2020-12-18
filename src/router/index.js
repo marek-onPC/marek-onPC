@@ -5,6 +5,7 @@ import Programming from '../views/Programming.vue'
 import Baking from '../views/Baking.vue'
 import Trips from '../views/Trips.vue'
 import About from '../views/About.vue'
+import Post from '../views/Post.vue'
 
 Vue.use(VueRouter)
 
@@ -36,6 +37,11 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: About
+  },
+  {
+    path: '/post',
+    name: 'Post',
+    component: Post
   }
 ]
 

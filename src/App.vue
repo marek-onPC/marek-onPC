@@ -38,8 +38,8 @@
 
     </v-app-bar>
 
-    <v-main style="margin-top: 235px">
-        <router-view></router-view>
+    <v-main style="margin-top: 235px" class="mx-auto">
+        <router-view style="max-width: 1400px"></router-view>
     </v-main>
 
     <template>
@@ -67,6 +67,25 @@ export default {
   name: 'App',
   components: {
     SearchDialog
+  },
+  methods: {
+    vTabsSliderDisplay () {
+      var url = new URL(window.location.href)
+      console.log(url.pathname)
+      if (url.pathname === '/post') {
+        document.getElementsByClassName('v-tabs-slider')[0].style.display = 'none'
+      } else {
+        document.getElementsByClassName('v-tabs-slider')[0].style.display = 'block'
+      }
+    }
+  },
+  mounted () {
+    this.vTabsSliderDisplay()
+  },
+  watch: {
+    $route: function () {
+      this.vTabsSliderDisplay()
+    }
   }
 }
 </script>
