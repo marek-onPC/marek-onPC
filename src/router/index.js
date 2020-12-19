@@ -6,6 +6,7 @@ import Baking from '../views/Baking.vue'
 import Trips from '../views/Trips.vue'
 import About from '../views/About.vue'
 import Post from '../views/Post.vue'
+import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -42,6 +43,14 @@ const routes = [
     path: '/post',
     name: 'Post',
     component: Post
+  },
+  {
+    path: '/404',
+    component: NotFound
+  },
+  {
+    path: '*',
+    redirect: '/404'
   }
 ]
 

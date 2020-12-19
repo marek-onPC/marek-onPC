@@ -12,7 +12,7 @@
         <div class="d-flex flex-column justify-center my-15" v-if="postData != ''">
           <v-card
           tile
-          elevation="1"
+          elevation="0"
           class="mb-10"
           >
             <v-img
@@ -22,15 +22,27 @@
             >
               <v-card-title class="py-10" style="background-color: rgba(0, 0, 0, 0.5);"><h1> {{ postData.title.rendered }} </h1></v-card-title>
             </v-img>
-            <div class="d-flex justify-space-between align-center">
+            <div class="d-flex flex-wrap justify-space-between align-center mx-md-5">
+              <div class="d-flex align-center">
                 <v-btn
-                  icon
-                  tile
-                  color="white"
-                  class="ma-2 px-7 primary"
+                :href="'https://facebook.com/share.php?u=' + postUrl"
+                icon
+                tile
+                color="primary"
+                class="ma-2"
                 >
-                  <v-icon>mdi-share-variant</v-icon>
+                  <v-icon large>mdi-facebook</v-icon>
                 </v-btn>
+                <v-btn
+                :href="'https://twitter.com/share?url=' + postUrl"
+                icon
+                tile
+                color="primary"
+                class="ma-2"
+                >
+                  <v-icon large>mdi-twitter</v-icon>
+                </v-btn>
+              </div>
               <div class="d-flex justify-end">
                 <v-chip
                 label
@@ -54,9 +66,9 @@
                   </v-icon>
                   {{ postData.date }}
                 </v-chip>
+              </div>
             </div>
-
-            </div>
+            <v-divider></v-divider>
           </v-card>
           <div class="px-3 px-md-10" v-html="postData.content.rendered">
           </div>
@@ -75,17 +87,18 @@ export default {
   data () {
     return {
       postId: '',
+      postUrl: '',
       postData: []
     }
   },
   methods: {
     getWpPostData () {
-      var url = new URL(window.location.href)
-      this.postId = url.searchParams.get('id')
+      this.postUrl = new URL(window.location.href)
+      this.postId = this.postUrl.searchParams.get('id')
 
-      console.log(this.postId)
-
-      if (this.postId !== '') {
+      if (this.postId === null || this.postId === '') {
+        window.location.replace('/404')
+      } else {
         axios.get('http://localhost:8888/wp-json/wp/v2/posts/' + this.postId)
           .then(function (response) {
             return response.data
@@ -93,14 +106,17 @@ export default {
           .then(data => {
             if (data) {
               this.postData = data
-              console.log(this.postData)
             }
           })
           .catch(error => {
             console.log(error)
-            setTimeout(() => {
-              this.getWpPostId()
-            }, 2500)
+            if (error.response.data.data.status === 404) {
+              window.location.replace('/404')
+            } else {
+              setTimeout(() => {
+                this.getWpPostId()
+              }, 2500)
+            }
           })
       }
     }

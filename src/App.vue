@@ -71,8 +71,8 @@ export default {
   methods: {
     vTabsSliderDisplay () {
       var url = new URL(window.location.href)
-      console.log(url.pathname)
-      if (url.pathname === '/post') {
+
+      if (url.pathname === '/post' || url.pathname === '/404') {
         document.getElementsByClassName('v-tabs-slider')[0].style.display = 'none'
       } else {
         document.getElementsByClassName('v-tabs-slider')[0].style.display = 'block'
