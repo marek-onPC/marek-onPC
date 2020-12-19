@@ -58,7 +58,6 @@
               </div>
               <v-divider></v-divider>
               <v-card-text v-html="post.excerpt.rendered">
-                {{ post.excerpt.rendered }}
               </v-card-text>
             </v-card>
           </div>

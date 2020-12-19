@@ -18,6 +18,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.not-found {
+  position: relative;
+}
+
 .fof-title {
   position: absolute;
   top: 20%;

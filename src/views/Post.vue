@@ -138,6 +138,9 @@ export default {
           break
       }
       this.postData.date = this.postData.date.split('T')[0]
+    },
+    $route: function () {
+      this.getWpPostData()
     }
   }
 }
