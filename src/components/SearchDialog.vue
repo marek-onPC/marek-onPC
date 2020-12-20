@@ -49,7 +49,7 @@
             @keyup="searchWpPosts"
             >
             </v-text-field>
-            <transition name="search-cards">
+            <transition name="search-info">
               <p v-if="!nothingFound && !searchLoading && searchResults != ''"><strong>{{ allSearchResults.length }}</strong> posts found.</p>
             </transition>
           </div>
@@ -262,13 +262,18 @@ export default {
   }
 }
 
-.search-cards-enter-active {
+.search-cards-enter-active, .search-info-enter-active {
   transition: all 1s;
 }
 
 .search-cards-enter {
   opacity: 0;
   transform: translateY(-75px) scale(0.925);
+}
+
+.search-info-enter {
+  opacity: 0;
+  transform: translateY(75px) scale(0.925);
 }
 
 @keyframes fadeIn {

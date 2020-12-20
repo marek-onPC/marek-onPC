@@ -42,11 +42,42 @@
         <router-view style="max-width: 1400px"></router-view>
     </v-main>
 
-    <template>
-      <v-parallax
-      height="250"
-      src="@/assets/material-design-wallpaper.png"></v-parallax>
-    </template>
+    <v-parallax
+    height="250"
+    src="@/assets/material-design-wallpaper.png">
+      <div class="d-flex justify-center">
+        <v-btn
+        href="mailto:mareksmieja@gmail.com"
+        target="_blank"
+        icon
+        tile
+        color="white"
+        class="ma-2 pa-7"
+        >
+          <v-icon x-large>mdi-email</v-icon>
+        </v-btn>
+        <v-btn
+        href="https://github.com/marek-onPC"
+        target="_blank"
+        icon
+        tile
+        color="white"
+        class="ma-2 pa-7"
+        >
+          <v-icon x-large>mdi-github</v-icon>
+        </v-btn>
+        <v-btn
+        href="https://www.linkedin.com/in/marek-smieja/"
+        target="_blank"
+        icon
+        tile
+        color="white"
+        class="ma-2 pa-7"
+        >
+          <v-icon x-large>mdi-linkedin</v-icon>
+        </v-btn>
+      </div>
+    </v-parallax>
 
     <v-footer
     dark
