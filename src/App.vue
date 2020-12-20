@@ -89,3 +89,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.wp-block-image {
+  img {
+    width: 100%;
+  }
+}
+</style>

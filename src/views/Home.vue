@@ -16,7 +16,7 @@
           v-for="(post, index) in homePosts"
           :key="post.id"
           class="pa-5"
-          :class="{ 'col-lg-7 col-sm-6': index === 0, 'col-lg-5 col-sm-6': index === 1, 'col-lg-4 col-sm-6': index > 1 }"
+          :class="{ 'col-lg-7 col-sm-12': index === 0, 'col-lg-5 col-sm-6': index === 1, 'col-lg-4 col-sm-6': index > 1 }"
           >
             <v-card
             :to="'/post?id=' + post.id"
@@ -102,10 +102,7 @@ export default {
         .then(data => {
           if (data) {
             this.allPosts = data
-            // this.allPosts = data.reduce(function (res, current, index, array) {
-            //   return res.concat([current, current])
-            // }, [])
-            this.homePosts = this.allPosts.slice(0, 5)
+            this.homePosts = this.allPosts.slice(0, this.postsToLoad)
           }
         })
         .catch(error => {

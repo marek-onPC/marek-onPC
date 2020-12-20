@@ -18,7 +18,7 @@
           class="pa-5 col-lg-4 col-sm-6"
           >
             <v-card
-            href="/"
+            :to="'/post?id=' + post.id"
             tile
             hover
             height="100%"
@@ -57,7 +57,6 @@
               </div>
               <v-divider></v-divider>
               <v-card-text v-html="post.excerpt.rendered">
-                {{ post.excerpt.rendered }}
               </v-card-text>
             </v-card>
           </div>
@@ -76,8 +75,10 @@ export default {
   name: 'Programming',
   data () {
     return {
+      allProgrammingPosts: [],
       programmingPosts: [],
-      postsToLoad: 6
+      postsToLoad: 6,
+      postsPerScreenWidth: 0
     }
   },
   methods: {
@@ -88,10 +89,8 @@ export default {
         })
         .then(data => {
           if (data) {
-            this.programmingPosts = data
-            // this.programmingPosts = data.reduce(function (res, current, index, array) {
-            //   return res.concat([current, current])
-            // }, [])
+            this.allProgrammingPosts = data
+            this.programmingPosts = this.allProgrammingPosts.slice(0, this.postsToLoad)
           }
         })
         .catch(error => {
@@ -103,19 +102,29 @@ export default {
     },
     loadMoreWpPosts () {
       window.onscroll = () => {
-        if (this.allPosts !== '' && window.location.pathname === '/programming') {
+        if (this.allProgrammingPosts !== '' && window.location.pathname === '/programming') {
           const scrollTrigger = document.documentElement.scrollTop + window.innerHeight
           const bottomOfMain = document.getElementsByClassName('programming')[0].scrollHeight
 
           if (scrollTrigger > bottomOfMain + 100) {
             this.postsToLoad = this.postsToLoad + 3
-            this.programmingPosts = this.programmingPosts.slice(0, this.postsToLoad)
+            this.programmingPosts = this.allProgrammingPosts.slice(0, this.postsToLoad)
           }
         }
+      }
+    },
+    setPostsPerScreenWidth () {
+      if (window.innerWidth > 1263) {
+        this.postsPerScreenWidth = 3
+      } else if (window.innerWidth > 600 && window.innerWidth <= 1263) {
+        this.postsPerScreenWidth = 2
+      } else {
+        this.postsPerScreenWidth = 1
       }
     }
   },
   created () {
+    this.setPostsPerScreenWidth()
     this.getWpPosts()
     this.loadMoreWpPosts()
   },
