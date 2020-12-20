@@ -1,12 +1,7 @@
 <template>
-
-<!-- TO DO:
-- INFINITE SCROLL
-- NUMBER OF POSTS FOUND -->
-
   <v-dialog
-    v-model="searchDialogVisible"
-    fullscreen
+  v-model="searchDialogVisible"
+  fullscreen
   >
   <template v-slot:activator="{ on }">
     <v-btn
@@ -21,12 +16,12 @@
     </template>
       <v-card>
         <v-toolbar
-          dark
-          color="primary"
-          tile
-          prominent
-          elevation="2"
-          src="@/assets/search-toolbar.png"
+        dark
+        color="primary"
+        tile
+        prominent
+        elevation="2"
+        src="@/assets/search-toolbar.png"
         >
           <v-toolbar-title class="py-0">
             <h2 class="font-weight-thin blue--gray">Search</h2>
@@ -35,25 +30,28 @@
           <v-spacer></v-spacer>
 
           <v-btn
-            icon
-            tile
-            @click="searchDialogVisible = false"
+          icon
+          tile
+          @click="searchDialogVisible = false"
           >
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-toolbar>
-        <v-container>
-          <div class="d-flex align-center justify-center">
+        <v-container class="search-form">
+          <div class="d-flex flex-column align-center justify-center my-7">
             <v-text-field
             label="What you want to find today?"
             dense
             color="secondary"
-            class="my-7 mx-5"
-            style="max-width: 500px;"
+            class="my-2 mx-5"
+            style="max-width: 500px; width: 100%"
             v-model="searchPhrase"
             @keyup="searchWpPosts"
             >
             </v-text-field>
+            <transition name="search-cards">
+              <p v-if="!nothingFound && !searchLoading && searchResults != ''"><strong>{{ allSearchResults.length }}</strong> posts found.</p>
+            </transition>
           </div>
 
           <div class="d-flex justify-center mt-15" v-if="searchLoading">
@@ -69,11 +67,11 @@
           </div>
 
           <transition name="search-cards">
-            <transition-group name="search-cards" class="d-flex flex-column justify-center mt-md-15" v-if="!searchLoading">
+            <transition-group name="search-cards" class="d-flex flex-column justify-center mt-md-15" v-if="!nothingFound && !searchLoading">
               <v-card
               class="mx-auto mb-10"
               outlined
-              shaped
+              tile
               hover
               v-for="post in searchResults"
               :key="post.id"
@@ -145,7 +143,9 @@ export default {
       searchPhrase: '',
       searchLoading: false,
       searchResults: '',
-      nothingFound: false
+      allSearchResults: '',
+      nothingFound: false,
+      postsToLoad: 5
     }
   },
   methods: {
@@ -159,9 +159,9 @@ export default {
             })
             .then(data => {
               if (data) {
-                this.searchResults = data
+                this.allSearchResults = data
+                this.searchResults = this.allSearchResults.slice(0, this.postsToLoad)
                 this.searchLoading = false
-                console.log(this.searchResults)
               }
             })
             .catch(error => {
@@ -169,13 +169,28 @@ export default {
               this.searchLoading = false
             })
         }
-      }, 500)
+      }, 500),
+    loadMoreSearchResults () {
+      if (this.searchDialogVisible === true) {
+        document.getElementsByClassName('v-dialog')[0].onscroll = () => {
+          if (this.allSearchResults !== '') {
+            const scrollTrigger = document.getElementsByClassName('v-dialog')[0].scrollTop + window.innerHeight
+            const bottomOfMain = document.getElementsByClassName('search-form')[0].scrollHeight
+
+            if (scrollTrigger > bottomOfMain) {
+              this.postsToLoad = this.postsToLoad + 1
+              this.searchResults = this.allSearchResults.slice(0, this.postsToLoad)
+            }
+          }
+        }
+      }
+    }
   },
   watch: {
-    searchResults: function () {
-      if (this.searchResults.length > 0) {
+    allSearchResults: function () {
+      if (this.allSearchResults.length > 0) {
         this.nothingFound = false
-        this.searchResults.forEach(post => {
+        this.allSearchResults.forEach(post => {
           switch (post.categories[0]) {
             case 55:
               post.categories = 'Programming'
@@ -189,22 +204,24 @@ export default {
           }
           post.date = post.date.split('T')[0]
         })
-      } else if (typeof this.searchResults === 'object' && this.searchResults !== null) {
+        this.loadMoreSearchResults()
+      } else if (typeof this.allSearchResults === 'object' && this.allSearchResults !== null) {
         this.nothingFound = true
-        console.log(this.searchResults)
       }
     },
     searchPhrase: function () {
       if (this.searchPhrase === '') {
-        this.searchResults = ''
+        this.allSearchResults = ''
       }
     },
     searchDialogVisible: function () {
       if (this.searchDialogVisible === false) {
         this.searchPhrase = ''
         this.searchLoading = false
+        this.allSearchResults = ''
         this.searchResults = ''
         this.nothingFound = false
+        this.postsToLoad = 5
       }
     }
   }

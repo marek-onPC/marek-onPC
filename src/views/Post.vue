@@ -141,6 +141,7 @@ export default {
     },
     $route: function () {
       this.getWpPostData()
+      window.scrollTo(0, 0)
     }
   }
 }
