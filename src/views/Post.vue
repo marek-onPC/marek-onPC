@@ -70,7 +70,7 @@
             </div>
             <v-divider></v-divider>
           </v-card>
-          <div class="px-3 px-md-10" v-html="postData.content.rendered">
+          <div class="px-3 px-md-10 wp-rendered-content" v-html="postData.content.rendered">
           </div>
         </div>
       </transition>

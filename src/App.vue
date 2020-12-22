@@ -122,9 +122,148 @@ export default {
 </script>
 
 <style lang="scss">
-.wp-block-image {
-  img {
-    width: 100%;
+@import url('assets/wp-css/style.min.css');
+
+.wp {
+  &-rendered-content {
+    h2 {
+      font-size: 40px;
+      font-weight: 300;
+      border-bottom: 2px solid #9E9E9E;
+      padding: 10px;
+      margin: 50px 0 25px;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 2px;
+        border-bottom: 2px solid #EF6C00;
+      }
+    }
+
+    h3 {
+      font-size: 32px;
+      font-weight: 300;
+      border-bottom: 2px solid #9E9E9E;
+      padding: 10px;
+      margin: 40px 0 20px;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 2px;
+        border-bottom: 2px solid #EF6C00;
+      }
+    }
+
+    h4, h5 {
+      font-size: 24px;
+      font-weight: 400;
+      border-bottom: 1px solid #9E9E9E;
+      padding: 10px;
+      margin: 30px 0 15px;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 1px;
+        border-bottom: 1px solid #EF6C00;
+      }
+    }
+
+    p {
+      letter-spacing: 0.25px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+
+      li {
+        position: relative;
+        list-style-type: none;
+        padding-left: 30px;
+        margin-bottom: 12.5px;
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 3.5px;
+          width: 5px;
+          height: 11px;
+          border-width: 0 2px 2px 0;
+          border-style: solid;
+          border-color: #EF6C00;
+          transform-origin: bottom left;
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    table {
+      background-color: #fff;
+      color: rgba(0,0,0,.87);
+      line-height: 1.5;
+      padding: 20px 25px 40px;
+      border: thin solid rgba(0,0,0,.12);
+
+      thead {
+        th {
+          height: 32px;
+          user-select: none;
+          font-size: 14px;
+          font-weight: 600;
+          color: rgba(0,0,0,.6);
+          border-bottom: thin solid rgba(0,0,0,.12);
+          padding: 0 16px;
+          transition: height .2s cubic-bezier(.4,0,.6,1);
+
+          &:hover {
+            background: rgba(0,0,0,.12);
+          }
+        }
+      }
+
+      td {
+        border-bottom: thin solid rgba(0,0,0,.12);
+        padding: 5px 16px;
+        transition: height .2s cubic-bezier(.4,0,.6,1);
+
+        &:hover {
+          background: rgba(0,0,0,.12);
+        }
+      }
+    }
+  }
+
+  &-block-embed {
+    &__wrapper {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &-block-image {
+    img {
+      width: 100%;
+    }
   }
 }
 </style>

@@ -10,7 +10,7 @@
       </div>
       <transition name="about">
         <div class="d-flex flex-column justify-center mt-5 mb-15" v-if="aboutData != ''">
-          <div class="px-3 px-md-10" v-html="aboutData[0].content.rendered">
+          <div class="px-3 px-md-10 wp-rendered-content" v-html="aboutData[0].content.rendered">
           </div>
         </div>
       </transition>
