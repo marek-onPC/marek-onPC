@@ -108,14 +108,21 @@ export default {
       } else {
         document.getElementsByClassName('v-tabs-slider')[0].style.display = 'block'
       }
+    },
+    pageTitle () {
+      document.title = this.$route.meta.title
     }
   },
   mounted () {
     this.vTabsSliderDisplay()
   },
+  created () {
+    this.pageTitle()
+  },
   watch: {
     $route: function () {
       this.vTabsSliderDisplay()
+      this.pageTitle()
     }
   }
 }
@@ -251,18 +258,16 @@ export default {
         }
       }
     }
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &-block-embed {
     &__wrapper {
       display: flex;
       justify-content: center;
-    }
-  }
-
-  &-block-image {
-    img {
-      width: 100%;
     }
   }
 }

@@ -138,6 +138,7 @@ export default {
           break
       }
       this.postData.date = this.postData.date.split('T')[0]
+      document.title = this.postData.title.rendered + ' - marek onPC'
     },
     $route: function () {
       this.getWpPostData()

@@ -14,22 +14,26 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: { title: 'Home - marek onPC' }
   },
   {
     path: '/programming',
     name: 'Programming',
-    component: Programming
+    component: Programming,
+    meta: { title: 'Programming - marek onPC' }
   },
   {
     path: '/baking',
     name: 'Baking',
-    component: Baking
+    component: Baking,
+    meta: { title: 'Baking - marek onPC' }
   },
   {
     path: '/trips',
     name: 'Trips',
-    component: Trips
+    component: Trips,
+    meta: { title: 'Trips - marek onPC' }
   },
   {
     path: '/about',
@@ -37,16 +41,19 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: About
+    component: About,
+    meta: { title: 'About - marek onPC' }
   },
   {
     path: '/post',
     name: 'Post',
-    component: Post
+    component: Post,
+    meta: { title: 'Post - marek onPC' }
   },
   {
     path: '/404',
-    component: NotFound
+    component: NotFound,
+    meta: { title: '404 - marek onPC' }
   },
   {
     path: '*',
