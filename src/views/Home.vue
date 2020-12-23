@@ -95,7 +95,7 @@ export default {
   },
   methods: {
     getWpPosts () {
-      axios.get('http://localhost:8888/wp-json/wp/v2/posts')
+      axios.get('https://ms-portfolio.eu/wp-json/wp/v2/posts')
         .then(function (response) {
           return response.data
         })

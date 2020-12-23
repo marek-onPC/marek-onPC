@@ -99,7 +99,7 @@ export default {
       if (this.postId === null || this.postId === '') {
         window.location.replace('/404')
       } else {
-        axios.get('http://localhost:8888/wp-json/wp/v2/posts/' + this.postId)
+        axios.get('https://ms-portfolio.eu/wp-json/wp/v2/posts/' + this.postId)
           .then(function (response) {
             return response.data
           })

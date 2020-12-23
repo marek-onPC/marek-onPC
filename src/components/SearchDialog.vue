@@ -153,7 +153,7 @@ export default {
       debounce(function () {
         if (this.searchPhrase !== '') {
           this.searchLoading = true
-          axios.get('http://localhost:8888/wp-json/wp/v2/posts?search=' + this.searchPhrase)
+          axios.get('https://ms-portfolio.eu/wp-json/wp/v2/posts?search=' + this.searchPhrase)
             .then(function (response) {
               return response.data
             })

@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     getWpaboutData () {
-      axios.get('http://localhost:8888/wp-json/wp/v2/pages?id=22')
+      axios.get('https://ms-portfolio.eu/wp-json/wp/v2/pages?id=22')
         .then(function (response) {
           return response.data
         })
