@@ -270,5 +270,22 @@ export default {
       justify-content: center;
     }
   }
+
+  &-block-code {
+    font-size: 16px;
+    line-height: 1.25;
+    padding: 20px 10px;
+    margin: 25px 0;
+    background: #1e1e1e;
+    overflow-x: auto;
+
+    code {
+      background: none;
+      color: #007acc;
+      font-weight: 300;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
 </style>
