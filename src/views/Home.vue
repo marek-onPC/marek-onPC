@@ -152,9 +152,9 @@ export default {
           case 56:
             post.categories = 'Baking'
             break
-          case 57:
-            post.categories = 'Trips'
-            break
+          // case 57:
+          //   post.categories = 'Trips'
+          //   break
         }
         post.date = post.date.split('T')[0]
       })

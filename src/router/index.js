@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Programming from '../views/Programming.vue'
 import Baking from '../views/Baking.vue'
-import Trips from '../views/Trips.vue'
+// import Trips from '../views/Trips.vue'
 import About from '../views/About.vue'
 import Post from '../views/Post.vue'
 import NotFound from '../views/NotFound.vue'
@@ -29,12 +29,12 @@ const routes = [
     component: Baking,
     meta: { title: 'Baking - marek onPC' }
   },
-  {
-    path: '/trips',
-    name: 'Trips',
-    component: Trips,
-    meta: { title: 'Trips - marek onPC' }
-  },
+  // {
+  //   path: '/trips',
+  //   name: 'Trips',
+  //   component: Trips,
+  //   meta: { title: 'Trips - marek onPC' }
+  // },
   {
     path: '/about',
     name: 'About',
