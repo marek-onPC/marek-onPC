@@ -88,7 +88,7 @@
                     :src="post.better_featured_image.source_url"
                     >
                   </v-avatar>
-                  <h2 class="display-1"> {{ post.title.rendered }} </h2>
+                  <h2 class="display-1" v-html="post.title.rendered"></h2>
                 </v-card-title>
 
                 <v-card-text v-html="post.excerpt.rendered" class="pb-0">
@@ -192,6 +192,9 @@ export default {
         this.nothingFound = false
         this.allSearchResults.forEach(post => {
           switch (post.categories[0]) {
+            case 1:
+              post.categories = 'General'
+              break
             case 55:
               post.categories = 'Programming'
               break

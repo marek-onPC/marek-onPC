@@ -29,7 +29,7 @@
               height="250px"
               class="white--text align-end"
               >
-                <v-card-title style="background-color: rgba(0, 0, 0, 0.5);"><h2> {{ post.title.rendered }} </h2></v-card-title>
+                <v-card-title style="background-color: rgba(0, 0, 0, 0.5);"><h2 v-html="post.title.rendered"></h2></v-card-title>
               </v-img>
               <div class="d-flex justify-end">
                 <v-chip

@@ -9,7 +9,7 @@
         ></v-progress-circular>
       </div>
       <transition name="post">
-        <div class="d-flex flex-column justify-center my-15" v-if="postData != ''">
+        <div class="d-flex flex-column justify-center my-15" style="max-width: 1000px" v-if="postData != ''">
           <v-card
           tile
           elevation="0"
@@ -20,7 +20,7 @@
             height="400px"
             :src="postData.better_featured_image.source_url"
             >
-              <v-card-title class="py-10" style="background-color: rgba(0, 0, 0, 0.5);"><h1> {{ postData.title.rendered }} </h1></v-card-title>
+              <v-card-title class="py-10" style="background-color: rgba(0, 0, 0, 0.5);"><h1 v-html="postData.title.rendered"></h1></v-card-title>
             </v-img>
             <div class="d-flex flex-wrap justify-space-between align-center mx-md-5">
               <div class="d-flex align-center">
@@ -97,7 +97,7 @@ export default {
       this.postId = this.postUrl.searchParams.get('id')
 
       if (this.postId === null || this.postId === '') {
-        window.location.replace('/404')
+        window.location.replace('/post?id=67')
       } else {
         axios.get('https://ms-portfolio.eu/wp-json/wp/v2/posts/' + this.postId)
           .then(function (response) {
@@ -138,7 +138,9 @@ export default {
           break
       }
       this.postData.date = this.postData.date.split('T')[0]
-      document.title = this.postData.title.rendered + ' - marek onPC'
+      document.title = (this.postData.title.rendered + ' - marek onPC')
+        .replace('&#8217;', '\'')
+        .replace('&#8211;', '-')
     },
     $route: function () {
       this.getWpPostData()

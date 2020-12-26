@@ -103,7 +103,7 @@ export default {
     vTabsSliderDisplay () {
       var url = new URL(window.location.href)
 
-      if (url.pathname === '/post' || url.pathname === '/404') {
+      if (url.pathname === '/post/' || url.pathname === '/404/' || url.pathname === '/post' || url.pathname === '/404') {
         document.getElementsByClassName('v-tabs-slider')[0].style.display = 'none'
       } else {
         document.getElementsByClassName('v-tabs-slider')[0].style.display = 'block'
@@ -195,6 +195,7 @@ export default {
 
     p {
       letter-spacing: 0.25px;
+      line-height: 30px;
     }
 
     ul {

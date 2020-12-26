@@ -22,4 +22,12 @@
       <loc>https://marek-onpc.com/about</loc>
       <changefreq>weekly</changefreq>
    </url>
+   <url>
+      <loc>https://marek-onpc.com/404</loc>
+      <changefreq>weekly</changefreq>
+   </url>
+   <url>
+      <loc>https://marek-onpc.com/post</loc>
+      <changefreq>weekly</changefreq>
+   </url>
 </urlset>
