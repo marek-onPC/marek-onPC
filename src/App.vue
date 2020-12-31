@@ -88,6 +88,22 @@
         <p class="ma-0">{{ new Date().getFullYear() }} - marek  <strong>onPC</strong></p>
       </div>
     </v-footer>
+
+    <transition name="showIn">
+      <v-btn
+      v-scroll="onScroll"
+      v-show="fabToTop"
+      fab
+      dark
+      fixed
+      bottom
+      right
+      color="secondary"
+      @click="toTop"
+      >
+        <v-icon x-large class="mb-1">mdi-menu-up</v-icon>
+      </v-btn>
+    </transition>
   </v-app>
 </template>
 
@@ -98,6 +114,11 @@ export default {
   name: 'App',
   components: {
     SearchDialog
+  },
+  data () {
+    return {
+      fabToTop: false
+    }
   },
   methods: {
     vTabsSliderDisplay () {
@@ -111,6 +132,14 @@ export default {
     },
     pageTitle () {
       document.title = this.$route.meta.title
+    },
+    onScroll (e) {
+      if (typeof window === 'undefined') return
+      const top = window.pageYOffset || e.target.scrollTop || 0
+      this.fabToTop = top > 500
+    },
+    toTop () {
+      this.$vuetify.goTo(0)
     }
   },
   mounted () {
@@ -194,8 +223,8 @@ export default {
     }
 
     p {
-      letter-spacing: 0.25px;
-      line-height: 30px;
+      letter-spacing: 0.35px;
+      line-height: 35px;
     }
 
     ul {
@@ -221,6 +250,7 @@ export default {
           border-color: #EF6C00;
           transform-origin: bottom left;
           transform: rotate(45deg);
+          transition: all .2s ease-in-out;
         }
       }
     }
@@ -288,5 +318,77 @@ export default {
       padding: 0;
     }
   }
+}
+
+#toc_container {
+  display: inline-block;
+  background-color: #fff;
+  color: rgba(0,0,0,.87);
+  border-bottom: 1px solid #EF6C00;
+  margin-bottom: 50px;
+  padding: 10px 0;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 1px;
+    border-bottom: 1px solid #007acc;
+  }
+
+  .toc_title {
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: 1px solid #007acc;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 1px;
+      border-bottom: 1px solid #EF6C00;
+    }
+  }
+
+  .toc_list {
+    a {
+      text-decoration: none;
+      transition: all .2s ease-in-out;
+
+      &:hover {
+        color: #007acc;
+      }
+    }
+
+    li {
+      transition: all .2s ease-in-out;
+
+      &:hover {
+        color: #007acc;
+
+        &::before {
+          border-color: #007acc;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+.showIn-enter-active, .showIn-leave-active  {
+  transition: all 0.5s;
+}
+
+.showIn-enter, .showIn-leave-to {
+  opacity: 0;
+  transform: rotateZ(-90deg) scale(0.5);
 }
 </style>

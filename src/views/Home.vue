@@ -88,7 +88,8 @@ export default {
     return {
       allPosts: [],
       homePosts: [],
-      morePosts: false,
+      // Until there is less that 5 posts
+      morePosts: true,
       postsToLoad: 5,
       postsPerScreenWidth: 0
     }

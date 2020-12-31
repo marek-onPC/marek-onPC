@@ -97,7 +97,7 @@ export default {
       this.postId = this.postUrl.searchParams.get('id')
 
       if (this.postId === null || this.postId === '') {
-        window.location.replace('/post?id=67')
+        window.location.replace('/post?id=124')
       } else {
         axios.get('https://ms-portfolio.eu/wp-json/wp/v2/posts/' + this.postId)
           .then(function (response) {
@@ -119,6 +119,21 @@ export default {
             }
           })
       }
+    },
+    tocSmoothScroll () {
+      const tocItems = document.querySelectorAll('.toc_list a')
+
+      tocItems.forEach(tocItem => {
+        tocItem.addEventListener('click', function (e) {
+          e.preventDefault()
+          const tocHref = this.getAttribute('href').replace('#', '')
+          const elementToScroll = document.getElementById(tocHref).getBoundingClientRect().top + window.scrollY - 110
+          window.scrollTo({
+            top: elementToScroll,
+            behavior: 'smooth'
+          })
+        })
+      })
     }
   },
   created () {
@@ -127,6 +142,9 @@ export default {
   watch: {
     postData: function () {
       switch (this.postData.categories[0]) {
+        case 1:
+          this.postData.categories = 'General'
+          break
         case 55:
           this.postData.categories = 'Programming'
           break
@@ -146,6 +164,9 @@ export default {
       this.getWpPostData()
       window.scrollTo(0, 0)
     }
+  },
+  updated () {
+    this.tocSmoothScroll()
   }
 }
 </script>
