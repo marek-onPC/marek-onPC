@@ -320,6 +320,30 @@ export default {
   }
 }
 
+.example-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 25px;
+  margin: 25px 0;
+  border: 1px solid rgba(0,0,0,.25);
+  position: relative;
+
+  &::before {
+    display: block;
+    content: "EXAMPLE";
+    position: absolute;
+    top: 0;
+    left: 0;
+    top: -14px;
+    left: 15px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    font-weight: 600;
+    background: #fff;
+    padding: 5px 10px;
+  }
+}
+
 #toc_container {
   display: inline-block;
   background-color: #fff;

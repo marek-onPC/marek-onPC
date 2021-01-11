@@ -134,6 +134,16 @@ export default {
           })
         })
       })
+    },
+    codeFromPost () {
+      const examples = document.getElementsByClassName('example-wrapper')
+      examples.forEach(example => {
+        if (example.querySelectorAll('script')[0]) {
+          // eslint-disable-next-line
+          const codeExecute = new Function(example.querySelectorAll('script')[0].innerHTML.replace('&#038;&#038;', '&&'))
+          codeExecute()
+        }
+      })
     }
   },
   created () {
@@ -167,6 +177,7 @@ export default {
   },
   updated () {
     this.tocSmoothScroll()
+    this.codeFromPost()
   }
 }
 </script>
