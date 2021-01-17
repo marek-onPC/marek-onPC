@@ -17,9 +17,9 @@ module.exports = {
         postProcessHtml: function (context) {
           var titles = {
             '/': 'Home',
-            '/programming': 'Programming',
-            '/baking': 'Baking',
-            '/trips': 'Trips',
+            // '/programming': 'Programming',
+            // '/baking': 'Baking',
+            // '/trips': 'Trips',
             '/about': 'About',
             '/post': 'Post',
             '/404': '404'

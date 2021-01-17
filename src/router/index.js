@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Programming from '../views/Programming.vue'
-import Baking from '../views/Baking.vue'
+// import Programming from '../views/Programming.vue'
+// import Baking from '../views/Baking.vue'
 // import Trips from '../views/Trips.vue'
 import About from '../views/About.vue'
 import Post from '../views/Post.vue'
@@ -17,18 +17,18 @@ const routes = [
     component: Home,
     meta: { title: 'Home - marek onPC' }
   },
-  {
-    path: '/programming',
-    name: 'Programming',
-    component: Programming,
-    meta: { title: 'Programming - marek onPC' }
-  },
-  {
-    path: '/baking',
-    name: 'Baking',
-    component: Baking,
-    meta: { title: 'Baking - marek onPC' }
-  },
+  // {
+  //   path: '/programming',
+  //   name: 'Programming',
+  //   component: Programming,
+  //   meta: { title: 'Programming - marek onPC' }
+  // },
+  // {
+  //   path: '/baking',
+  //   name: 'Baking',
+  //   component: Baking,
+  //   meta: { title: 'Baking - marek onPC' }
+  // },
   // {
   //   path: '/trips',
   //   name: 'Trips',
