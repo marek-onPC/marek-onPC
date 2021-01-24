@@ -7,18 +7,6 @@
       <priority>1</priority>
    </url>
    <url>
-      <loc>https://marek-onpc.com/programming</loc>
-      <changefreq>weekly</changefreq>
-   </url>
-   <url>
-      <loc>https://marek-onpc.com/baking</loc>
-      <changefreq>weekly</changefreq>
-   </url>
-   <url>
-      <loc>https://marek-onpc.com/trips</loc>
-      <changefreq>weekly</changefreq>
-   </url>
-   <url>
       <loc>https://marek-onpc.com/about</loc>
       <changefreq>weekly</changefreq>
    </url>

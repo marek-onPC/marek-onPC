@@ -29,9 +29,6 @@
         >
           <v-tabs-slider color="secondary"></v-tabs-slider>
           <v-tab to="/">home</v-tab>
-          <!-- <v-tab to="/programming">programming</v-tab> -->
-          <!-- <v-tab to="/baking">baking</v-tab> -->
-          <!-- <v-tab to="/trips">trips</v-tab> -->
           <v-tab to="/about">about</v-tab>
         </v-tabs>
       </template>
