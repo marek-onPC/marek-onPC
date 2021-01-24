@@ -114,7 +114,7 @@ export default {
               window.location.replace('/404')
             } else {
               setTimeout(() => {
-                this.getWpPostId()
+                this.getWpPostData()
               }, 2500)
             }
           })
