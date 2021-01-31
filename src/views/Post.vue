@@ -20,7 +20,7 @@
             height="400px"
             :src="postData.better_featured_image.source_url"
             >
-              <v-card-title class="py-10" style="background-color: rgba(0, 0, 0, 0.5);"><h1 v-html="postData.title.rendered"></h1></v-card-title>
+              <v-card-title class="py-10" style="background-color: rgba(0, 0, 0, 0.5);"><h1 v-html="postData.title.rendered" style="word-break: break-word;"></h1></v-card-title>
             </v-img>
             <div class="d-flex flex-wrap justify-space-between align-center mx-md-5">
               <div class="d-flex align-center">
