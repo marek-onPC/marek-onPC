@@ -32,31 +32,6 @@
               >
                 <v-card-title style="background-color: rgba(0, 0, 0, 0.5);"><h2 v-html="post.title.rendered" style="word-break: break-word;"></h2></v-card-title>
               </v-img>
-              <div class="d-flex justify-end">
-                <v-chip
-                label
-                small
-                color="secondary"
-                class="ma-2"
-                >
-                  <v-icon left small>
-                    mdi-label
-                  </v-icon>
-                  {{ post.categories }}
-                </v-chip>
-                <v-chip
-                label
-                small
-                color="secondary"
-                class="ma-2"
-                >
-                  <v-icon left small>
-                    mdi-calendar
-                  </v-icon>
-                  {{ post.date }}
-                </v-chip>
-              </div>
-              <v-divider></v-divider>
               <v-card-text v-html="post.excerpt.rendered">
               </v-card-text>
             </v-card>
@@ -71,7 +46,7 @@
         color="secondary"
         @click="morePosts = true; postsToLoad = postsToLoad + postsPerScreenWidth; homePosts = allPosts.slice(0, postsToLoad)"
         >
-          More articles...
+          More notes...
         </v-btn>
       </div>
     </v-container>
@@ -88,8 +63,7 @@ export default {
     return {
       allPosts: [],
       homePosts: [],
-      // Until there is less that 5 posts
-      morePosts: true,
+      morePosts: false,
       postsToLoad: 5,
       postsPerScreenWidth: 0
     }
@@ -141,25 +115,6 @@ export default {
     this.getWpPosts()
   },
   watch: {
-    homePosts: function () {
-      this.homePosts.forEach(post => {
-        switch (post.categories[0]) {
-          case 1:
-            post.categories = 'General'
-            break
-          case 55:
-            post.categories = 'Programming'
-            break
-          case 56:
-            post.categories = 'Baking'
-            break
-          // case 57:
-          //   post.categories = 'Trips'
-          //   break
-        }
-        post.date = post.date.split('T')[0]
-      })
-    },
     morePosts: function () {
       if (this.morePosts === true) {
         this.loadMoreWpPosts()

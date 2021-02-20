@@ -43,30 +43,6 @@
                   <v-icon large>mdi-twitter</v-icon>
                 </v-btn>
               </div>
-              <div class="d-flex justify-end">
-                <v-chip
-                label
-                small
-                color="secondary"
-                class="ma-2"
-                >
-                  <v-icon left small>
-                    mdi-label
-                  </v-icon>
-                  {{ postData.categories }}
-                </v-chip>
-                <v-chip
-                label
-                small
-                color="secondary"
-                class="ma-2"
-                >
-                  <v-icon left small>
-                    mdi-calendar
-                  </v-icon>
-                  {{ postData.date }}
-                </v-chip>
-              </div>
             </div>
             <v-divider></v-divider>
           </v-card>
@@ -151,21 +127,6 @@ export default {
   },
   watch: {
     postData: function () {
-      switch (this.postData.categories[0]) {
-        case 1:
-          this.postData.categories = 'General'
-          break
-        case 55:
-          this.postData.categories = 'Programming'
-          break
-        case 56:
-          this.postData.categories = 'Baking'
-          break
-        case 57:
-          this.postData.categories = 'Trips'
-          break
-      }
-      this.postData.date = this.postData.date.split('T')[0]
       document.title = (this.postData.title.rendered + ' - marek onPC')
         .replace('&#8217;', '\'')
         .replace('&#8211;', '-')
