@@ -9,7 +9,7 @@
     tile
     v-on="on"
     >
-      <v-icon>
+      <v-icon color="white">
         mdi-magnify
       </v-icon>
     </v-btn>
@@ -94,30 +94,6 @@
                 <v-card-text v-html="post.excerpt.rendered" class="pb-0">
                 </v-card-text>
 
-                <div class="d-flex justify-start ml-2">
-                  <v-chip
-                  label
-                  small
-                  color="secondary"
-                  class="ma-2"
-                  >
-                    <v-icon left small>
-                      mdi-label
-                    </v-icon>
-                    {{ post.categories }}
-                  </v-chip>
-                  <v-chip
-                  label
-                  small
-                  color="secondary"
-                  class="ma-2"
-                  >
-                    <v-icon left small>
-                      mdi-calendar
-                    </v-icon>
-                    {{ post.date }}
-                  </v-chip>
-                </div>
               </v-card>
             </transition-group>
           </transition>

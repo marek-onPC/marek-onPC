@@ -144,12 +144,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.v-tabs-slider-wrapper {
+  display: none;
+}
+
 .post-enter-active {
-  transition: all 1s;
+  transition: all 1s ease-in-out;
 }
 
 .post-enter {
   opacity: 0;
-  transform: translateY(-75px) scale(0.925);
+  transform: translateX(75px) rotateY(60deg);
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-app-bar
+    v-if="$router.history.current['path'] !== '/'"
     fixed
     color="primary"
     dark
@@ -29,17 +30,22 @@
         >
           <v-tabs-slider color="secondary"></v-tabs-slider>
           <v-tab to="/">home</v-tab>
+          <v-tab to="/notes">notes</v-tab>
           <v-tab to="/about">about</v-tab>
         </v-tabs>
       </template>
 
     </v-app-bar>
 
-    <v-main style="margin-top: 235px" class="mx-auto">
-        <router-view style="max-width: 1400px"></router-view>
+    <v-main
+    :class="[$route.name === 'Home' ? '' : 'mt-content']"
+    class="mx-auto"
+    >
+      <router-view style="max-width: 1400px"></router-view>
     </v-main>
 
     <v-parallax
+    v-if="$router.history.current['path'] !== '/'"
     height="250"
     src="@/assets/material-design-wallpaper.png">
       <div class="d-flex justify-center">
@@ -121,10 +127,12 @@ export default {
     vTabsSliderDisplay () {
       var url = new URL(window.location.href)
 
-      if (url.pathname === '/post/' || url.pathname === '/404/' || url.pathname === '/post' || url.pathname === '/404') {
-        document.getElementsByClassName('v-tabs-slider')[0].style.display = 'none'
-      } else {
-        document.getElementsByClassName('v-tabs-slider')[0].style.display = 'block'
+      if (document.getElementsByClassName('v-tabs')[0]) {
+        if (url.pathname === '/' || url.pathname === '/post/' || url.pathname === '/404/' || url.pathname === '/post' || url.pathname === '/404') {
+          document.getElementsByClassName('v-tabs-slider')[0].style.display = 'none'
+        } else {
+          document.getElementsByClassName('v-tabs-slider')[0].style.display = 'block'
+        }
       }
     },
     pageTitle () {
@@ -139,7 +147,7 @@ export default {
       this.$vuetify.goTo(0)
     }
   },
-  mounted () {
+  updated () {
     this.vTabsSliderDisplay()
   },
   created () {
@@ -156,6 +164,29 @@ export default {
 
 <style lang="scss">
 @import url('assets/wp-css/style.min.css');
+
+html {
+  //Firefox
+  scrollbar-color: #ef6c00 #039be5;
+  scrollbar-width: thin;
+
+  //Chrome, Safari, Opera
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #039be5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ef6c00;
+  }
+}
+
+.vanta-canvas {
+  opacity: 0.7;
+}
 
 .wp {
   &-rendered-content {
@@ -320,6 +351,10 @@ export default {
       }
     }
   }
+}
+
+.mt-content {
+  margin-top: 235px;
 }
 
 .example-wrapper {
