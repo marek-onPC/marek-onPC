@@ -84,15 +84,7 @@ export default {
       // eslint-disable-next-line
       const text = anime.timeline({
         easing: 'easeInOutExpo',
-        delay: 1000
-      })
-
-      // eslint-disable-next-line
-      anime({
-        targets: '.home, .home-buttons',
-        easing: 'easeInOutSine',
-        duration: 2000,
-        opacity: 1
+        delay: 1250
       })
 
       text.add({
@@ -147,11 +139,6 @@ export default {
   background-image: url('~@/assets/material-design-wallpaper.png');
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0;
-}
-
-.home-buttons {
-  opacity: 0;
 }
 
 svg {

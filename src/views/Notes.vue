@@ -16,7 +16,7 @@
           v-for="(post, index) in homePosts"
           :key="post.id"
           class="pa-5"
-          :class="{ 'col-lg-7 col-sm-12': index === 0, 'col-lg-5 col-sm-6': index === 1, 'col-lg-4 col-sm-6': index > 1 }"
+          :class="{ 'col-12': index === 0, 'col-sm-6': index > 0 }"
           >
             <v-card
             :to="'/post?id=' + post.id"
@@ -101,9 +101,7 @@ export default {
       }
     },
     setPostsPerScreenWidth () {
-      if (window.innerWidth > 1263) {
-        this.postsPerScreenWidth = 3
-      } else if (window.innerWidth > 600 && window.innerWidth <= 1263) {
+      if (window.innerWidth > 600) {
         this.postsPerScreenWidth = 2
       } else {
         this.postsPerScreenWidth = 1
