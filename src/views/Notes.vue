@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     getWpPosts () {
-      axios.get('https://ms-portfolio.eu/wp-json/wp/v2/posts')
+      axios.get('https://ms-portfolio.eu/wp-json/wp/v2/posts?per_page=100')
         .then(function (response) {
           return response.data
         })

@@ -11,7 +11,7 @@ module.exports = {
       new PrerenderSPAPlugin({
         // Description of use: https://www.npmjs.com/package/prerender-spa-plugin
         staticDir: path.join(__dirname, 'dist'),
-        routes: ['/', '/notes', '/about', '/post', '/404'],
+        routes: ['/', '/notes', '/about', '/post', '/fof'],
         captureAfterElementExists: '.v-card',
         captureAfterTime: 5000,
         postProcessHtml: function (context) {
@@ -20,7 +20,7 @@ module.exports = {
             '/notes': 'Notes',
             '/about': 'About',
             '/post': 'Post',
-            '/404': '404'
+            '/fof': 'Four0Four'
           }
           return context.html.replace(
             /<title>[^<]*<\/title>/i,

@@ -34,13 +34,13 @@ const routes = [
     meta: { title: 'Post - marek onPC' }
   },
   {
-    path: '/404',
+    path: '/fof',
     component: NotFound,
-    meta: { title: '404 - marek onPC' }
+    meta: { title: 'Four0Four - marek onPC' }
   },
   {
     path: '*',
-    redirect: '/404'
+    redirect: '/fof'
   }
 ]
 

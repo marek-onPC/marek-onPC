@@ -7,7 +7,7 @@
     dark
     extension-height="42"
     shrink-on-scroll
-    src="@/assets/blog_wallpaper.jpg"
+    src="@/assets/material-design-wallpaper.png"
     fade-img-on-scroll
     elevation="2"
     height="150"
@@ -128,7 +128,7 @@ export default {
       var url = new URL(window.location.href)
 
       if (document.getElementsByClassName('v-tabs')[0]) {
-        if (url.pathname === '/' || url.pathname === '/post/' || url.pathname === '/404/' || url.pathname === '/post' || url.pathname === '/404') {
+        if (url.pathname === '/' || url.pathname === '/post/' || url.pathname === '/fof/' || url.pathname === '/post' || url.pathname === '/fof') {
           document.getElementsByClassName('v-tabs-slider')[0].style.display = 'none'
         } else {
           document.getElementsByClassName('v-tabs-slider')[0].style.display = 'block'
@@ -167,7 +167,7 @@ export default {
 
 html {
   //Firefox
-  scrollbar-color: #ef6c00 #039be5;
+  scrollbar-color: #039be5 #ef6c00;
   scrollbar-width: thin;
 
   //Chrome, Safari, Opera
@@ -176,16 +176,12 @@ html {
   }
 
   ::-webkit-scrollbar-track {
-    background: #039be5;
+    background: #ef6c00;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #ef6c00;
+    background: #039be5;
   }
-}
-
-.vanta-canvas {
-  opacity: 0.7;
 }
 
 .wp {
@@ -317,9 +313,12 @@ html {
         }
       }
     }
+
     img {
-      width: 100%;
+      width: auto;
+      max-width: 100%;
       height: 100%;
+      margin: auto;
     }
   }
 
@@ -328,6 +327,10 @@ html {
       display: flex;
       justify-content: center;
     }
+  }
+
+  &-block-image {
+    display: flex;
   }
 
   &-block-code {

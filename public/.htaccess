@@ -1,6 +1,1 @@
-# ErrorDocument 404 /404
-RewriteEngine On
-RewriteBase /
-
-RewriteCond %{REQUEST_URI} ^/404/$
-RewriteRule ^(.*)$ /404 [L]
+ErrorDocument 404 http://marek-onpc.com/fof/
