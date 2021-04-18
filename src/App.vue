@@ -153,6 +153,9 @@ export default {
   created () {
     this.pageTitle()
   },
+  mounted () {
+    this.vTabsSliderDisplay()
+  },
   watch: {
     $route: function () {
       this.vTabsSliderDisplay()
