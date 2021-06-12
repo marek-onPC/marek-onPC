@@ -73,7 +73,7 @@ export default {
       this.postId = this.postUrl.searchParams.get('id')
 
       if (this.postId === null || this.postId === '') {
-        window.location.replace('/post?id=124')
+        window.location.replace('/post?id=706')
       } else {
         axios.get('https://ms-portfolio.eu/wp-json/wp/v2/posts/' + this.postId)
           .then(function (response) {
@@ -82,6 +82,7 @@ export default {
           .then(data => {
             if (data) {
               this.postData = data
+              window.scrollTo(0, 0)
             }
           })
           .catch(error => {
