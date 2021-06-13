@@ -29,7 +29,7 @@ export default {
       padding: 0,
       lineCap: 'round',
       gradient: gradients[0],
-      value: [5, 5, 7, 3, 10, 0, 5, 5, 5, 7, 3, 10, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+      value: [5, 5, 7, 3, 10, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
       gradientDirection: 'left',
       gradients,
       fill: false,

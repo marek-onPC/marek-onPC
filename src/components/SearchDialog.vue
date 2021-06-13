@@ -70,6 +70,7 @@
             <transition-group name="search-cards" class="d-flex flex-column justify-center mt-md-15" v-if="!nothingFound && !searchLoading">
               <v-card
               class="mx-auto mb-10"
+              width="100%"
               outlined
               tile
               hover
