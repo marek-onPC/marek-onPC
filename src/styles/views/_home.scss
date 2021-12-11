@@ -1,0 +1,14 @@
+.home {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  // max-width: 110rem;
+  padding: 0 1rem;
+  margin: auto;
+
+  @media (min-width: '768px') {
+    padding: 0 2.5rem;
+  }
+}

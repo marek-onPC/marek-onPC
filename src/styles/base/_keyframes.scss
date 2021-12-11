@@ -1,0 +1,45 @@
+@keyframes backgroundBubbles {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-150rem) rotate(600deg);
+  }
+}
+
+@keyframes borderExpand {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes halfBorderExpand {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    transform: translateX(-2rem);
+    opacity: 0;
+
+    @media (min-width: '768px') {
+      transform: translateX(-5rem);
+    }
+  }
+
+  100% {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+$colorPrimary: #00B0FF;
+$colorSecondary: #757575;
+$colorText: #212121;
+$colorWhite: #FFF;
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $colorText;
+  font-weight: 300;
+  line-height: 1;
+
+  @media (min-width: '768px') {
+    line-height: 1.5;
+  }
+}
+
+h1 {
+  font-size: 6rem;
+  font-weight: 100;
+
+  @media (min-width: '768px') {
+    font-size: 9.6rem;
+  }
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 100;
+
+  @media (min-width: '768px') {
+    font-size: 6rem;
+  }
+}
+
+h3 {
+  font-size: 3.6rem;
+  font-weight: 100;
+
+  @media (min-width: '768px') {
+    font-size: 4.8rem;
+  }
+}
+
+h4 {
+  font-size: 2.8rem;
+  font-weight: 100;
+
+  @media (min-width: '768px') {
+    font-size: 3.6rem;
+  }
+}
+
+h5 {
+  font-size: 2.2rem;
+  font-weight: 100;
+
+  @media (min-width: '768px') {
+    font-size: 2.8rem;
+  }
+}
+
+h6 {
+  font-size: 1.8rem;
+  font-weight: 100;
+
+  @media (min-width: '768px') {
+    font-size: 2.4rem;
+  }
+}
+
+a {
+  color: $colorPrimary;
+}

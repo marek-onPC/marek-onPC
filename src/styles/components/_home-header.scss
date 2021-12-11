@@ -1,0 +1,45 @@
+.home-header {
+  position: absolute;
+  top: 5rem;
+  left: 1rem;
+
+  @media (min-width: '1200px') {
+    left: calc(50% - 56rem);
+  }
+
+  &__name {
+    color: $colorPrimary;
+    animation: fadeInLeft 1.5s ease 0.75s alternate forwards;
+    opacity: 0;
+  }
+
+  &__title {
+    animation: fadeInLeft 1.5s ease 1.25s alternate forwards;
+    opacity: 0;
+
+    @media (min-width: '768px') {
+      margin-top: -3rem;
+    }
+  }
+
+  &__separator {
+    position: relative;
+    width: 0;
+    margin: 2rem 0 3rem;
+    border-bottom: 0.15rem solid $colorPrimary;
+    animation: borderExpand 0.25s ease 2s alternate forwards;
+
+
+    &::after {
+      position: absolute;
+      bottom: -0.15rem;
+      left: 0;
+      display: block;
+      content: "";
+      width: 0;
+      height: 0.15rem;
+      border-bottom: 0.15rem solid $colorSecondary;
+      animation: halfBorderExpand 0.25s ease 2.5s alternate forwards;
+    }
+  }
+}
