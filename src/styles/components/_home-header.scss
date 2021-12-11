@@ -42,4 +42,22 @@
       animation: halfBorderExpand 0.25s ease 2.5s alternate forwards;
     }
   }
+
+  &__icons {
+    .icon {
+      font-size: 4.5em;
+      animation: fadeInLeft 1.5s ease alternate forwards;
+      opacity: 0;
+
+      @for $i from 0 through 5 {
+        &.icon-#{$i} {
+          animation-delay: ($i * (0.2s) + 2);
+        }
+      }
+
+      @media (min-width: '768px') {
+        font-size: 7em;
+      }
+    }
+  }
 }

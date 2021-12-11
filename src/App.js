@@ -1,3 +1,4 @@
+import Navigation from './components/Navigation';
 import Home from './views/Home';
 import Notes from './views/Notes';
 import About from './views/About';
@@ -10,6 +11,7 @@ import {
 function App() {
   return (
     <BrowserRouter>
+      <Navigation/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/notes" element={<Notes />} />
