@@ -12,18 +12,50 @@
 
   @media (min-width: '768px') {
     top: auto;
-    bottom: calc(50% - 22.5rem);
+    bottom: calc(50% - 25rem);
+    right: 8.5rem;
+
+    &::before {
+      position: absolute;
+      bottom: -5.5rem;
+      right: 4rem;
+      display: block;
+      content: "";
+      width: 0.15rem;
+      height: 150%;
+      border-right: 0.15rem solid rgba($colorPrimary, 0.35);
+      transform: rotateZ(39.5deg);
+      opacity: 0;
+      animation: fadeInBottom 1s ease 1.25s alternate forwards;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -3rem;
+      right: -7rem;
+      display: block;
+      content: "nav()";
+      width: auto;
+      height: auto;
+      font-size: 8rem;
+      font-weight: 100;
+      color: rgba($colorPrimary, 0.35);
+      transform: rotateZ(-50.5deg);
+      opacity: 0;
+      animation: fadeIn 1s ease 1.75s alternate forwards;
+    }
   }
 
   @media (min-width: '1200px') {
-    right: calc(50% - 56rem);
+    bottom: calc(50% - 22.5rem);
+    right: calc(50% - 50rem);
   }
 
   &__button {
     position: relative;
     color: $colorText;
     text-decoration: none;
-    padding: 1.3rem 0 1.3rem 1.5rem;
+    padding: 1.3rem 1.5rem;
     margin: auto 0 1rem;
     animation: fadeInLeft 1.5s ease alternate forwards;
     opacity: 0;
