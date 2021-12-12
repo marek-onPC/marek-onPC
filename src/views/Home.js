@@ -11,7 +11,6 @@ import {
   faWordpress
 } from '@fortawesome/free-brands-svg-icons'
 
-
 export default function Home() {
   const icons = {
     faJs: {
@@ -39,6 +38,8 @@ export default function Home() {
       'color' : '#00749C'
     },
   }
+
+  document.title = 'marek-onpc.com'
 
   return (
     <div className='home'>

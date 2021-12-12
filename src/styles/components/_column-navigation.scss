@@ -52,54 +52,14 @@
   }
 
   &__button {
-    position: relative;
-    color: $colorText;
-    text-decoration: none;
-    padding: 1.3rem 1.5rem;
-    margin: auto 0 1rem;
+    @include navButton;
+
     animation: fadeInLeft 1.5s ease alternate forwards;
     opacity: 0;
 
     @for $i from 0 through 2 {
       &.button-#{$i} {
         animation-delay: ($i * (0.2s) + 1.5);
-      }
-    }
-
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: block;
-      content: "";
-      width: 5rem;
-      height: 5rem;
-      border-radius: 3.25rem;
-      background: rgba($colorSecondary, 0.2);
-      box-shadow: 0 0.1rem 0.25rem rgba($colorSecondary, 0);
-      transition: width 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-      will-change: width, background-color, box-shadow;
-      z-index: -1;
-    }
-
-    span {
-      font-size: 2rem;
-      line-height: 1.25;
-      font-weight: 300;
-      letter-spacing: 0.5rem;
-      margin-left: 2rem;
-    }
-
-    svg {
-      color: $colorText;
-      width: 2rem !important;
-    }
-
-    &:hover {
-      &::before {
-        width: 100%;
-        background: rgba($colorPrimary, 0.45);
-        box-shadow: 0 0.1rem 0.15rem rgba($colorSecondary, 0.25);
       }
     }
 
