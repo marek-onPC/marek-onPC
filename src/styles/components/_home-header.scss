@@ -9,12 +9,14 @@
 
   &__name {
     color: $colorPrimary;
+    margin: 0;
     animation: fadeInLeft 1.5s ease 0.75s alternate forwards;
     opacity: 0;
   }
 
   &__title {
     animation: fadeInLeft 1.5s ease 1.25s alternate forwards;
+    margin: 0;
     opacity: 0;
 
     @media (min-width: '768px') {

@@ -28,28 +28,28 @@ export default function Navigation() {
             icon={ faHome }
             size='2x'
           />
-          <span>home()</span>
+          <span>home</span>
         </NavLink>
         <NavLink to="/about" className='navigation__button'>
           <FontAwesomeIcon
             icon={ faUser }
             size='2x'
           />
-          <span>about()</span>
+          <span>about</span>
         </NavLink>
         <NavLink to="/notes" className='navigation__button'>
           <FontAwesomeIcon
             icon={ faStickyNote }
             size='2x'
           />
-          <span>notes()</span>
+          <span>notes</span>
         </NavLink>
         <NavLink to="/" className='navigation__button'>
           <FontAwesomeIcon
             icon={ faPlug }
             size='2x'
           />
-          <span>plugin()</span>
+          <span>plugin</span>
         </NavLink>
       </nav>
     )

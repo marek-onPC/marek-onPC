@@ -16,21 +16,21 @@ export default function ColumnNavigation() {
           icon={ faUser }
           size='2x'
         />
-        <span>about()</span>
+        <span>about</span>
       </Link>
       <Link to="/notes" className='column-navigation__button button-1'>
         <FontAwesomeIcon
           icon={ faStickyNote }
           size='2x'
         />
-        <span>notes()</span>
+        <span>notes</span>
       </Link>
       <Link to="/" className='column-navigation__button button-2'>
         <FontAwesomeIcon
           icon={ faPlug }
           size='2x'
         />
-        <span>plugin()</span>
+        <span>plugin</span>
       </Link>
     </nav>
   )

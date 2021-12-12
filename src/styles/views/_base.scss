@@ -1,0 +1,14 @@
+.container {
+  position: relative;
+  max-width: 110rem;
+  padding: 0 1.5rem;
+  margin: 2rem auto;
+
+  @media (min-width: '768px') {
+    padding: 0 2rem;
+  }
+  
+  @media (min-width: '1200px') {
+    padding: 0;
+  }
+}
