@@ -1,12 +1,15 @@
 @import './styles/base/reset';
 @import './styles/base/typography';
 @import './styles/base/keyframes';
+@import './styles/base/modifiers';
 
 @import './styles/components/buttons';
 @import './styles/components/home-header';
 @import './styles/components/background-bubbles';
 @import './styles/components/navigation';
 @import './styles/components/column-navigation';
+@import './styles/components/pills';
+@import './styles/components/timeline';
 
 @import './styles/views/base';
 @import './styles/views/home';

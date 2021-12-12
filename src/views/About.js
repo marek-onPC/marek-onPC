@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useCallback  } from 'react';
+import Pills from '../components/Pills';
+import Timeline from '../components/Timeline';
 
 export default function About() {
   const [content, setContent] = useState(null)
@@ -25,10 +27,13 @@ export default function About() {
   return (
     <div className='about container'>
       { content !== null &&
-      <>
-        <div dangerouslySetInnerHTML={ { __html: content.content.rendered } }></div>
-        <h5>Technology</h5>
-      </>
+        <>
+          <div dangerouslySetInnerHTML={ { __html: content.content.rendered } }></div>
+          <h5 className='text-center border-bottom-50 mt-5'>Technology</h5>
+          <Pills pills={ content.acf.technology.split(';') } />
+          <h5 className='text-center border-bottom-50'>Timeline</h5>
+          <Timeline events={ content.acf.timeline } />
+        </>
       }
     </div>
   );

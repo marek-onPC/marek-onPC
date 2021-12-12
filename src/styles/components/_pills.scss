@@ -1,0 +1,18 @@
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 70rem;
+  margin: auto;
+
+  &__single {
+    display: inline-block;
+    width: auto;
+    font-size: 1.4rem;
+    padding: 0.35rem 1rem;
+    margin: 0.5rem;
+    border-radius: 3.25rem;
+    background: rgba($colorPrimary, 0.2);
+    box-shadow: 0 0.1rem 0.25rem rgba($colorSecondary, 0);
+  }
+}
