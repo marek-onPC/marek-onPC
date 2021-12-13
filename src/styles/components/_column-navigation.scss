@@ -1,13 +1,13 @@
 .column-navigation {
   position: absolute;
-  top: 35rem;
+  top: 45rem;
   right: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 
-  @media (min-width: '375px') {
-    top: 30rem;
+  @media (min-width: '360px') {
+    top: 35rem;
   }
 
   @media (min-width: '768px') {
