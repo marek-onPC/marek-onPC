@@ -10,7 +10,7 @@ export default function Cards(props) {
             <Link className="card__single" to={ '/post?id=' + card.id } key={ index }>
             { console.log(card) }
               <figure className="card__image">
-                <img src={ card.better_featured_image.media_details.sizes.medium_large.source_url } />
+                <img src={ card.better_featured_image.media_details.sizes.medium_large.source_url } alt={ card.better_featured_image.media_details.file } />
               </figure>
               <div className="card__body">
                 <div className="card__tags">
@@ -21,7 +21,6 @@ export default function Cards(props) {
                   }
                 </div>
                 <h4 className='card__title' dangerouslySetInnerHTML={ { __html: card.title.rendered } }></h4>
-                <div className='card__excerpt' dangerouslySetInnerHTML={ { __html: card.excerpt.rendered } }></div>
               </div>
             </Link>
           )

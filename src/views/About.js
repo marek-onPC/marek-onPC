@@ -16,9 +16,9 @@ export default function About() {
     }
   }, [])
 
-  useEffect(() => {
-    document.title = 'about'
+  document.title = 'about'
 
+  useEffect(() => {
     fetchAboutPageJSON().then(data => {
       setContent(data)
     })
@@ -29,9 +29,9 @@ export default function About() {
       { content !== null &&
         <>
           <div dangerouslySetInnerHTML={ { __html: content.content.rendered } }></div>
-          <h5 className='text-center border-bottom-50 mt-5'>Technology</h5>
+          <h3 className='text-center border-bottom-50 mt-5'>Technology</h3>
           <Pills pills={ content.acf.technology.split(';') } />
-          <h5 className='text-center border-bottom-50'>Timeline</h5>
+          <h3 className='text-center border-bottom-50'>Timeline</h3>
           <Timeline events={ content.acf.timeline } />
         </>
       }

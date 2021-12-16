@@ -1,0 +1,28 @@
+.note {
+  &__header {
+    position: relative;
+  }
+
+  &__thumbnail {
+    width: 100% !important;
+    max-height: 40rem;
+    object-fit: cover;
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 3.1rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    line-height: 1.1;
+    background: rgba($color: $colorWhite, $alpha: 0.75);
+    padding: 2rem;
+    margin: 0;
+  
+    @media (min-width: '768px') {
+      font-size: 4.3rem;
+    }
+  }
+}

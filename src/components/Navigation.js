@@ -22,35 +22,37 @@ export default function Navigation() {
   if (location.pathname !== '/') {
     return (
       <nav className='navigation'>
-        <h1 className='navigation__title'>{ pageTitle }</h1>
-        <NavLink to="/" className='navigation__button'>
-          <FontAwesomeIcon
-            icon={ faHome }
-            size='2x'
-          />
-          <span>home</span>
-        </NavLink>
-        <NavLink to="/about" className='navigation__button'>
-          <FontAwesomeIcon
-            icon={ faUser }
-            size='2x'
-          />
-          <span>about</span>
-        </NavLink>
-        <NavLink to="/notes" className='navigation__button'>
-          <FontAwesomeIcon
-            icon={ faStickyNote }
-            size='2x'
-          />
-          <span>notes</span>
-        </NavLink>
-        <NavLink to="/" className='navigation__button'>
-          <FontAwesomeIcon
-            icon={ faPlug }
-            size='2x'
-          />
-          <span>plugin</span>
-        </NavLink>
+        <div className='navigation__inner'>
+          <h1 className='navigation__title'>{ pageTitle }</h1>
+          <NavLink to="/" className='navigation__button'>
+            <FontAwesomeIcon
+              icon={ faHome }
+              size='2x'
+            />
+            <span>home</span>
+          </NavLink>
+          <NavLink to="/about" className='navigation__button'>
+            <FontAwesomeIcon
+              icon={ faUser }
+              size='2x'
+            />
+            <span>about</span>
+          </NavLink>
+          <NavLink to="/notes" className='navigation__button'>
+            <FontAwesomeIcon
+              icon={ faStickyNote }
+              size='2x'
+            />
+            <span>notes</span>
+          </NavLink>
+          <NavLink to="/" className='navigation__button'>
+            <FontAwesomeIcon
+              icon={ faPlug }
+              size='2x'
+            />
+            <span>plugin</span>
+          </NavLink>
+        </div>
       </nav>
     )
   } else {

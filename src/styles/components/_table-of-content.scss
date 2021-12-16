@@ -1,0 +1,69 @@
+#toc_container {
+  display: inline-block;
+  color: $colorText;
+  padding: 1rem 0;
+  border-bottom: 0.1rem solid $colorSecondary;
+  margin-bottom: 5rem;
+  background-color: $colorWhite;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    bottom: -0.1rem;
+    left: 0;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 0.1rem;
+    border-bottom: 0.1rem solid $colorPrimary;
+  }
+
+  .toc_title {
+    position: relative;
+    font-size: 3.1rem;
+    font-weight: 100;
+    border-bottom: 0.1rem solid $colorPrimary;
+    
+    @media (min-width: '768px') {
+      font-size: 4.3rem;
+    }
+
+    &::before {
+      position: absolute;
+      bottom: -0.1rem;
+      left: 0;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 0.1rem;
+      border-bottom: 0.1rem solid $colorPrimary;
+    }
+  }
+
+  .toc_list {
+    a {
+      color: $colorText;
+      font-weight: 400;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $colorPrimary;
+      }
+    }
+
+    li {
+      line-height: 1.25;
+
+      &::before {
+        transition: margin-left 0.3s ease;
+      }
+
+      &:hover {
+        &::before {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+}

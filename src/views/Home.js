@@ -8,7 +8,7 @@ import {
   faReact,
   faVuejs,
   faPhp,
-  faWordpress
+  faGulp
 } from '@fortawesome/free-brands-svg-icons'
 
 export default function Home() {
@@ -34,8 +34,8 @@ export default function Home() {
       'color' : '#787CB5'
     },
     faWordpress: {
-      icon : faWordpress,
-      'color' : '#00749C'
+      icon : faGulp,
+      'color' : '#D34A47'
     },
   }
 

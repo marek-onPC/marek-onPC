@@ -4,7 +4,7 @@
   right: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
 
   @media (min-width: '360px') {
     top: 35rem;
@@ -17,30 +17,29 @@
 
     &::before {
       position: absolute;
-      bottom: -5.5rem;
-      right: 4rem;
+      bottom: -2.75rem;
+      left: 2rem;
       display: block;
       content: "";
       width: 0.15rem;
       height: 150%;
-      border-right: 0.15rem solid rgba($colorPrimary, 0.35);
-      transform: rotateZ(39.5deg);
+      border-right: 0.15rem solid rgba($colorPrimary, 0.65);
+      transform: rotateZ(45deg);
       opacity: 0;
       animation: fadeInBottom 1s ease 1.25s alternate forwards;
     }
 
     &::after {
       position: absolute;
-      bottom: -3rem;
-      right: -7rem;
+      top: -12.75rem;
+      right: -5rem;
       display: block;
       content: "nav()";
       width: auto;
       height: auto;
       font-size: 8rem;
       font-weight: 100;
-      color: rgba($colorPrimary, 0.35);
-      transform: rotateZ(-50.5deg);
+      color: rgba($colorPrimary, 0.65);
       opacity: 0;
       animation: fadeIn 1s ease 1.75s alternate forwards;
     }
@@ -63,12 +62,16 @@
       }
     }
 
+    &:nth-of-type(1n) {
+      margin-left: 12rem;
+    }
+
     &:nth-of-type(2n) {
-      margin-right: 5rem
+      margin-left: 6rem;
     }
 
     &:nth-of-type(3n) {
-      margin-right: 10rem;
+      margin-left: 0;
     }
   }
 }

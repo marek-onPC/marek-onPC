@@ -28,9 +28,9 @@ export default function Notes() {
     }
   }, [])
 
-  useEffect(() => {
-    document.title = 'notes'
+  document.title = 'notes'
 
+  useEffect(() => {
     fetchNotesJSON().then(data => {
       setNotes(data)
     })

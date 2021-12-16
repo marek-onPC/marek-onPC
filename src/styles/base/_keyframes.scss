@@ -40,16 +40,16 @@
 
 @keyframes fadeInBottom {
   0% {
-    transform: translateY(2rem) rotateZ(39.5deg);
+    transform: translateY(2rem) rotateZ(45deg);
     opacity: 0;
 
     @media (min-width: '768px') {
-      transform: translateY(5rem) rotateZ(39.5deg);
+      transform: translateY(5rem) rotateZ(45deg);
     }
   }
 
   100% {
-    transform: translateY(0rem) rotateZ(39.5deg);
+    transform: translateY(0rem) rotateZ(45deg);
     opacity: 1;
   }
 }

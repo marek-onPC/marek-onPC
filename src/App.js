@@ -2,6 +2,7 @@ import Navigation from './components/Navigation';
 import Home from './views/Home';
 import Notes from './views/Notes';
 import About from './views/About';
+import Note from './views/Note';
 import {
   BrowserRouter,
   Routes,
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/notes" element={<Notes />} />
         <Route path="/about" element={<About />} />
+        <Route path="/note" element={<Note />} />
       </Routes>
     </BrowserRouter>
   );
