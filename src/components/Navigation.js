@@ -1,23 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { NavLink, useLocation } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faStickyNote,
   faUser,
   faPlug,
   faHome
-} from '@fortawesome/free-solid-svg-icons'
+} from '@fortawesome/free-solid-svg-icons';
 
 export default function Navigation() {
   const location = useLocation()
   const [pageTitle, setPageTitle] = useState('')
+
+  const resetTitleAnimation = useCallback(() => {
+    if (location.pathname !== '/') {
+      let title = document.querySelector('.navigation__title')
+
+      title.style.animation = 'none'
+      setTimeout(function() {
+        title.style.animation = ''
+      }, 10);
+    }
+  }, [location])
 
   new MutationObserver(function() {
     setPageTitle(document.querySelector('title').innerHTML)
   }).observe(
     document.querySelector('title'),
     { subtree: false, characterData: true, childList: true }
-  );
+  )
+
+  useEffect(() => {
+    resetTitleAnimation()
+  })
 
   if (location.pathname !== '/') {
     return (

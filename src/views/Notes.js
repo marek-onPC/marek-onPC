@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback  } from 'react';
 import Cards from '../components/Cards';
 import scrollToTop from '../utils/scrollToTop';
+import Loader from '../components/Loader';
 
 export default function Notes() {
   const [notes, setNotes] = useState(null)
@@ -44,7 +45,12 @@ export default function Notes() {
 
   return (
     <div className='notes container'>
-      <Cards cardsData={ notes } />
+      <Loader data={ notes } />
+      { notes !== null &&
+        <div className='container__content'>
+          <Cards cardsData={ notes } />
+        </div>
+      }
     </div>
   );
 }

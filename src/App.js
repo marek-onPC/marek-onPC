@@ -16,8 +16,8 @@ function App() {
       <Navigation/>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/notes" element={<Notes />} />
         <Route path="/about" element={<About />} />
+        <Route path="/notes" element={<Notes />} />
         <Route path="/plugin" element={<Plugin />} />
         <Route path="/note" element={<Note />} />
       </Routes>

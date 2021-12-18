@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback  } from 'react';
 import scrollToTop from '../utils/scrollToTop';
+import Loader from '../components/Loader';
 
 export default function Plugin() {
   const [content, setContent] = useState(null)
@@ -15,7 +16,7 @@ export default function Plugin() {
     }
   }, [])
 
-  scrollToTop();
+  scrollToTop()
   document.title = 'gutenberg+'
 
   useEffect(() => {
@@ -26,10 +27,11 @@ export default function Plugin() {
 
   return (
     <div className='plugin container'>
+      <Loader data={ content } />
       { content !== null &&
-        <>
+        <div className='container__content'>
           <div dangerouslySetInnerHTML={ { __html: content.content.rendered } }></div>
-        </>
+        </div>
       }
     </div>
   );

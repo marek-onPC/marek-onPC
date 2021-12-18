@@ -1,0 +1,15 @@
+.loader {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 3rem);
+  display: flex;
+
+  svg {
+    margin: auto;
+    animation: rotateAnimation 1s ease-in-out infinite;
+  }
+
+  &.loaded {
+    animation: contentFadeOut 0.5s ease 0.15s alternate forwards;
+  }
+}

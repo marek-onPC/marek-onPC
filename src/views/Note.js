@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useCallback  } from 'react';
 import scrollToTop from '../utils/scrollToTop';
+import Loader from '../components/Loader';
 
 export default function Note() {
   const [note, setNote] = useState(null)
   const fetchNoteJSON = useCallback(async () => {
-    let noteUrl = new URL(window.location.href);
-    let noteId = noteUrl.searchParams.get('id');
+    let noteUrl = new URL(window.location.href)
+    let noteId = noteUrl.searchParams.get('id')
 
     if (noteId === null || noteId === '') {
       window.location.replace('/note?id=706')
@@ -24,8 +25,6 @@ export default function Note() {
         }
       }
     }
-
-
   }, [])
 
   scrollToTop();
@@ -38,16 +37,17 @@ export default function Note() {
   }, [fetchNoteJSON])
 
   return (
-    <div className=' note container'>
-    { note &&
-      <>
-        <div className='note__header'>
-          <img className='note__thumbnail' src={ note.better_featured_image.source_url } alt={ note.better_featured_image.media_details.file } />
-          <h1 className='note__title' dangerouslySetInnerHTML={ { __html: note.title.rendered } }></h1>
+    <div className='note container'>
+      <Loader data={ note } />
+      { note &&
+        <div className='container__content'>
+          <div className='note__header'>
+            <img className='note__thumbnail' src={ note.better_featured_image.source_url } alt={ note.better_featured_image.media_details.file } />
+            <h1 className='note__title' dangerouslySetInnerHTML={ { __html: note.title.rendered } }></h1>
+          </div>
+          <div className='wp-rendered-content note__content' dangerouslySetInnerHTML={ { __html: note.content.rendered } }></div>
         </div>
-        <div className='wp-rendered-content note__content' dangerouslySetInnerHTML={ { __html: note.content.rendered } }></div>
-      </>
-    }
+      }
     </div>
   );
 }

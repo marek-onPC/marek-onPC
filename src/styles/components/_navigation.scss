@@ -14,7 +14,7 @@
     left: 0;
     width: 100%;
     border-bottom: 0.1rem solid rgba($color: $colorSecondary, $alpha: 0.5);
-    box-shadow: 0 0.2rem 0.25rem rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0.15rem 0.25rem rgba(0, 0, 0, 0.35);
   }
 
   &__inner {
@@ -56,6 +56,14 @@
 
     @media (min-width: '1200px') {
       left: 0;
+    }
+
+    &.about,
+    &.notes,
+    &.note,
+    &.plugin {
+      opacity: 0;
+      animation: contentFadeIn 0.3s ease alternate forwards;
     }
 
     &.plugin {

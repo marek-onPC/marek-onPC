@@ -34,4 +34,9 @@ html {
   @media (min-width: '1200px') {
     padding: 0;
   }
+
+  &__content {
+    opacity: 0;
+    animation: contentFadeIn 0.5s ease 0.15s alternate forwards;
+  }
 }
