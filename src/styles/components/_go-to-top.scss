@@ -1,0 +1,27 @@
+.go-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  will-change: opacity;
+
+  &.hidden {
+    pointer-events: none;
+    cursor: auto;
+    opacity: 0;
+  }
+
+  svg {
+    filter: drop-shadow(0 0.25rem 0.25rem rgba(0, 0, 0, 0.35));
+    transition: filter 0.3s ease, transform 0.3s ease;
+    will-change: filter, transform;
+  
+    &:hover {
+      filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5));
+      transform: scale(1.05);
+    }
+  }
+}

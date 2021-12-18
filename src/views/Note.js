@@ -26,6 +26,23 @@ export default function Note() {
       }
     }
   }, [])
+  
+  const tocSmoothScroll = () => {
+    const tocItems = document.querySelectorAll('.toc_list a')
+
+    tocItems.forEach(tocItem => {
+      tocItem.addEventListener('click', function (e) {
+        e.preventDefault()
+
+        const tocItemId = tocItem.getAttribute('href').replace('#', '')
+        const sectionTopOffset = document.getElementById(tocItemId).getBoundingClientRect().top + document.documentElement.scrollTop - 100
+
+        setTimeout(function() {
+          window.scrollTo(0, sectionTopOffset)
+        }, 50)
+      })
+    })
+  }
 
   scrollToTop();
   document.title = 'note'
@@ -33,6 +50,8 @@ export default function Note() {
   useEffect(() => {
     fetchNoteJSON().then(data => {
       setNote(data)
+    }).then(() => {
+      tocSmoothScroll()
     })
   }, [fetchNoteJSON])
 

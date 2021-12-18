@@ -1,4 +1,5 @@
 import Navigation from './components/Navigation';
+import GoToTop from './components/GoToTop';
 import Home from './views/Home';
 import Notes from './views/Notes';
 import About from './views/About';
@@ -14,6 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navigation/>
+      <GoToTop/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

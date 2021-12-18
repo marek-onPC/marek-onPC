@@ -1,7 +1,7 @@
-export default function scrollToTop() {
+export default function scrollToTop(scrollBehavior) {
   window.scrollTo({
     top: 0,
     left: 0,
-    behavior: 'instant'
+    behavior: scrollBehavior ? scrollBehavior : 'instant'
   });
 }
