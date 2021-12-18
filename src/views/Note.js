@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback  } from 'react';
+import scrollToTop from '../utils/scrollToTop';
 
 export default function Note() {
   const [note, setNote] = useState(null)
@@ -27,6 +28,7 @@ export default function Note() {
 
   }, [])
 
+  scrollToTop();
   document.title = 'note'
 
   useEffect(() => {
@@ -48,5 +50,4 @@ export default function Note() {
     }
     </div>
   );
-
 }

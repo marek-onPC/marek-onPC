@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback  } from 'react';
 import Cards from '../components/Cards';
+import scrollToTop from '../utils/scrollToTop';
 
 export default function Notes() {
   const [notes, setNotes] = useState(null)
@@ -28,6 +29,7 @@ export default function Notes() {
     }
   }, [])
 
+  scrollToTop();
   document.title = 'notes'
 
   useEffect(() => {

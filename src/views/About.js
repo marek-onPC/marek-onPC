@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback  } from 'react';
 import Pills from '../components/Pills';
 import Timeline from '../components/Timeline';
+import scrollToTop from '../utils/scrollToTop';
 
 export default function About() {
   const [content, setContent] = useState(null)
@@ -16,6 +17,7 @@ export default function About() {
     }
   }, [])
 
+  scrollToTop();
   document.title = 'about'
 
   useEffect(() => {

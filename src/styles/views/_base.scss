@@ -1,3 +1,20 @@
+html {
+  scrollbar-color: $colorSecondary $colorPrimary;
+  scrollbar-width: thin;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $colorSecondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $colorPrimary;
+  }
+}
+
 .container {
   position: relative;
   max-width: 100rem;
@@ -5,7 +22,7 @@
   padding: 0 1.5rem;
   margin: 19rem auto 5rem;
 
-  @media (min-width: '410px') {
+  @media (min-width: '521px') {
     margin: 14.75rem auto 7.5rem;
   }
 

@@ -7,8 +7,7 @@ export default function Cards(props) {
       <div className='card__cards'>
         {
           Object.values(props.cardsData).map((card, index) =>
-            <Link className="card__single" to={ '/post?id=' + card.id } key={ index }>
-            { console.log(card) }
+            <Link className="card__single" to={ '/note?id=' + card.id } key={ index }>
               <figure className="card__image">
                 <img src={ card.better_featured_image.media_details.sizes.medium_large.source_url } alt={ card.better_featured_image.media_details.file } />
               </figure>

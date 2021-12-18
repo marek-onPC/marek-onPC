@@ -25,12 +25,12 @@ export default function ColumnNavigation() {
         />
         <span>notes</span>
       </Link>
-      <Link to="/" className='column-navigation__button button-2'>
+      <Link to="/plugin" className='column-navigation__button button-2'>
         <FontAwesomeIcon
           icon={ faPlug }
           size='2x'
         />
-        <span>plugin</span>
+        <span>gutenberg+ plugin</span>
       </Link>
     </nav>
   )

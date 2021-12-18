@@ -23,7 +23,7 @@ export default function Navigation() {
     return (
       <nav className='navigation'>
         <div className='navigation__inner'>
-          <h1 className='navigation__title'>{ pageTitle }</h1>
+          <h1 className={ `navigation__title ${ location.pathname.replace(/\//g, '') }` }>{ pageTitle }</h1>
           <NavLink to="/" className='navigation__button'>
             <FontAwesomeIcon
               icon={ faHome }
@@ -45,12 +45,12 @@ export default function Navigation() {
             />
             <span>notes</span>
           </NavLink>
-          <NavLink to="/" className='navigation__button'>
+          <NavLink to="/plugin" className='navigation__button'>
             <FontAwesomeIcon
               icon={ faPlug }
               size='2x'
             />
-            <span>plugin</span>
+            <span>gutenberg+ plugin</span>
           </NavLink>
         </div>
       </nav>

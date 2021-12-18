@@ -30,10 +30,6 @@
       padding: 2rem 2rem 3.5rem;
     }
 
-    &:not(:first-child) {
-      margin-top: -6rem;
-    }
-
     &:nth-child(2n) {
       text-align: left;
       margin: 0 0 0 auto;
@@ -47,7 +43,10 @@
           }
         }
       }
+    }
 
+    &:not(:first-child) {
+      margin-top: -6rem;
     }
 
     p {
