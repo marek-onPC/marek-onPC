@@ -1,0 +1,19 @@
+.not-found {
+  height: min-content;
+  min-height: min-content;
+  margin: 16rem auto 0;
+
+  @media (min-width: '521px') {
+    margin: 10rem auto 0;
+  }
+
+  @media (min-width: '768px') {
+    margin: 9rem auto 0;
+  }
+
+  img {
+    max-height: calc(100vh - 11rem);
+    margin: auto;
+    image-rendering: -webkit-optimize-contrast;
+  }
+}

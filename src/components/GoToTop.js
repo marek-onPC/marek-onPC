@@ -14,7 +14,7 @@ export default function GoToTop() {
         goToTopElement.classList.add('hidden')
       }
     })
-  })
+  }, [])
 
   useEffect(() => {
     onScroll()
