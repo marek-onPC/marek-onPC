@@ -4,6 +4,7 @@ import Loader from '../components/Loader';
 
 export default function Plugin() {
   const [content, setContent] = useState(null)
+
   const fetchPluginPageJSON = useCallback(async () => {
     try {
       const response = await fetch('https://ms-portfolio.eu/wp-json/wp/v2/pages/792')
@@ -16,14 +17,14 @@ export default function Plugin() {
     }
   }, [])
 
-  scrollToTop()
-  document.title = 'gutenberg+'
-
   useEffect(() => {
+    document.title = 'gutenberg+'
+
+    scrollToTop()
     fetchPluginPageJSON().then(data => {
       setContent(data)
     })
-  }, [fetchPluginPageJSON])
+  }, [])
 
   return (
     <div className='plugin container'>

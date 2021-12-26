@@ -9,6 +9,14 @@
     animation: rotateAnimation 1s ease-in-out infinite;
   }
 
+  &.wide {
+    top: -2rem;
+    left: 0;
+    width: 100%;
+    padding-top: 2rem;
+    backdrop-filter: blur(0.5rem);
+  }
+
   &.loaded {
     animation: contentFadeOut 0.5s ease 0.15s alternate forwards;
   }

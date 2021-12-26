@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback  } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Pills from '../components/Pills';
 import Timeline from '../components/Timeline';
 import scrollToTop from '../utils/scrollToTop';
@@ -6,6 +6,7 @@ import Loader from '../components/Loader';
 
 export default function About() {
   const [content, setContent] = useState(null)
+
   const fetchAboutPageJSON = useCallback(async () => {
     try {
       const response = await fetch('https://ms-portfolio.eu/wp-json/wp/v2/pages/22')
@@ -18,14 +19,14 @@ export default function About() {
     }
   }, [])
 
-  scrollToTop();
-  document.title = 'about'
-
   useEffect(() => {
+    document.title = 'about'
+
+    scrollToTop()
     fetchAboutPageJSON().then(data => {
       setContent(data)
     })
-  }, [fetchAboutPageJSON])
+  }, [])
 
   return (
     <div className='about container'>

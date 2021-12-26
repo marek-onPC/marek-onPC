@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HomeHeader from '../components/HomeHeader';
 import ColumnNavigation from '../components/ColumnNavigation';
 import BackgroundBubbles from '../components/BackgroundBubbles';
@@ -39,7 +39,9 @@ export default function Home() {
     },
   }
 
-  document.title = 'marek-onpc.com'
+  useEffect(() => {
+    document.title = 'marek-onpc.com'
+  }, [])
 
   return (
     <div className='home'>

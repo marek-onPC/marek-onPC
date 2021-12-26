@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useCallback  } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import scrollToTop from '../utils/scrollToTop';
 import Loader from '../components/Loader';
 
 export default function Note() {
   const [note, setNote] = useState(null)
+
   const fetchNoteJSON = useCallback(async () => {
     let noteUrl = new URL(window.location.href)
     let noteId = noteUrl.searchParams.get('id')
@@ -44,16 +45,16 @@ export default function Note() {
     })
   }
 
-  scrollToTop();
-  document.title = 'note'
-
   useEffect(() => {
+    document.title = 'note'
+
+    scrollToTop()
     fetchNoteJSON().then(data => {
       setNote(data)
     }).then(() => {
       tocSmoothScroll()
     })
-  }, [fetchNoteJSON])
+  }, [])
 
   return (
     <div className='note container'>

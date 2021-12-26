@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import scrollToTop from '../utils/scrollToTop';
 
 export default function NotFound() {
-  scrollToTop();
-  document.title = '404'
+  useEffect(() => {
+    document.title = '404'
+
+    scrollToTop()
+  }, [])
 
   return (
     <div className='not-found container'>
