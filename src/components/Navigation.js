@@ -23,6 +23,14 @@ export default function Navigation() {
     }
   }, [location])
 
+  const setHomePageClass = useCallback(() => {
+    if (location.pathname !== '/') {
+      document.querySelector('html').classList.remove('home-page')
+    } else {
+      document.querySelector('html').classList.add('home-page')
+    }
+  }, [location])
+
   new MutationObserver(function() {
     setPageTitle(document.querySelector('title').innerHTML)
   }).observe(
@@ -32,6 +40,7 @@ export default function Navigation() {
 
   useEffect(() => {
     resetTitleAnimation()
+    setHomePageClass()
   })
 
   if (location.pathname !== '/') {

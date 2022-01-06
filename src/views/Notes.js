@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Cards from '../components/Cards';
 import scrollToTop from '../utils/scrollToTop';
 import Loader from '../components/Loader';
@@ -7,7 +7,7 @@ export default function Notes() {
   const [notes, setNotes] = useState(null)
   const [categories, setCategories] = useState(null)
 
-  const fetchNotes = () => {
+  const fetchNotes = useCallback(() => {
     fetch('https://ms-portfolio.eu/wp-json/wp/v2/posts?per_page=100')
     .then(data => data.json())
     .then(data => {
@@ -20,9 +20,9 @@ export default function Notes() {
         fetchNotes()
       }, 2500)
     })
-  }
+  }, [])
 
-  const fetchCategories = () => {
+  const fetchCategories = useCallback(() => {
     fetch('https://ms-portfolio.eu/wp-json/wp/v2/categories')
     .then(data => data.json())
     .then(data => {
@@ -35,7 +35,7 @@ export default function Notes() {
         fetchCategories()
       }, 2500)
     })
-  }
+  }, [])
 
   const fetchNotesByCategory = (e) => {
     setNotes(null)
@@ -70,7 +70,7 @@ export default function Notes() {
     scrollToTop()
     fetchNotes()
     fetchCategories()
-  }, [])
+  }, [fetchNotes, fetchCategories])
 
   return (
     <div className='notes container'>
@@ -87,7 +87,7 @@ export default function Notes() {
           <div className='pills__single skeleton'></div>
         </div>
       }
-      <Loader style={ 'wide' } data={ notes } />
+      <Loader type={ 'wide' } data={ notes } />
       { notes !== null &&
         <div className='container__content'>
           <Cards cardsData={ notes } />

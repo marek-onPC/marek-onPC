@@ -24,7 +24,7 @@ export default function Plugin() {
     fetchPluginPageJSON().then(data => {
       setContent(data)
     })
-  }, [])
+  }, [fetchPluginPageJSON])
 
   return (
     <div className='plugin container'>

@@ -26,7 +26,7 @@ export default function About() {
     fetchAboutPageJSON().then(data => {
       setContent(data)
     })
-  }, [])
+  }, [fetchAboutPageJSON])
 
   return (
     <div className='about container'>

@@ -13,20 +13,28 @@ html {
   ::-webkit-scrollbar-thumb {
     background: $colorPrimary;
   }
+  
+  overflow-y: scroll;
+
+  &.home-page {
+    overflow-y: auto;
+  }
 }
 
 .container {
   position: relative;
   max-width: 100rem;
-  min-height: 100vh;
+  min-height: calc(100vh - 24rem);
   padding: 0 1.5rem;
   margin: 19rem auto 5rem;
 
   @media (min-width: '521px') {
+    min-height: calc(100vh - 22.25rem);
     margin: 14.75rem auto 7.5rem;
   }
 
   @media (min-width: '768px') {
+    min-height: calc(100vh - 25rem);
     margin: 15rem auto 10rem;
     padding: 0 2rem;
   }

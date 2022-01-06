@@ -8,7 +8,9 @@ import {
   faReact,
   faVuejs,
   faPhp,
-  faGulp
+  faGulp,
+  faGithubSquare,
+  faLinkedin
 } from '@fortawesome/free-brands-svg-icons'
 
 export default function Home() {
@@ -39,6 +41,21 @@ export default function Home() {
     },
   }
 
+  const social = {
+    faGithubSquare: {
+      icon : faGithubSquare,
+      'color' : '#212121',
+      'title' : 'GitHub',
+      'link' : 'https://github.com/marek-onPC'
+    },
+    faLinkedin: {
+      icon : faLinkedin,
+      'color' : '#212121',
+      'title' : 'LinkedIn',
+      'link' : 'https://www.linkedin.com/in/marek-smieja/'
+    }
+  }
+
   useEffect(() => {
     document.title = 'marek-onpc.com'
   }, [])
@@ -48,6 +65,7 @@ export default function Home() {
       <HomeHeader
         name={ 'Marek Smieja' }
         title={ 'front-end developer' }
+        social={ social }
         icons={ icons }
       />
       <ColumnNavigation/>

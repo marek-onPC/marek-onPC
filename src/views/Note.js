@@ -54,7 +54,7 @@ export default function Note() {
     }).then(() => {
       tocSmoothScroll()
     })
-  }, [])
+  }, [fetchNoteJSON])
 
   return (
     <div className='note container'>

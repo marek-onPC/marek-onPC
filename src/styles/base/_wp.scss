@@ -1,4 +1,6 @@
 .wp {
+  $this: &;
+
   &-rendered-content {
     h2,
     h3,
@@ -126,4 +128,42 @@
       }
     }
   }
+
+  &-block-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &-block-button {
+    &__link {
+      @include navButton;
+
+      display: inline-block;
+      width: auto;
+      font-size: 1.8rem;
+      text-decoration: none;
+      color: $colorText;
+      padding: 0.35rem 1.75rem;
+      margin: 0.5rem;
+      border-radius: 3.25rem;
+      background: rgba($colorSecondary, 0.2);
+      box-shadow: 0 0.1rem 0.25rem rgba($colorSecondary, 0.25);
+      transition: background-color 0.2s ease;
+      will-change: background-color;
+
+      &:hover {
+        background: rgba($colorPrimary, 0.85);
+      }
+  
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+.has-text-align-center {
+  text-align: center;
 }
