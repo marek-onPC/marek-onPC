@@ -31,7 +31,7 @@ export default function Plugin() {
       <Loader data={ content } />
       { content !== null &&
         <div className='container__content'>
-          <div dangerouslySetInnerHTML={ { __html: content.content.rendered } }></div>
+          <div className='wp-rendered-content' dangerouslySetInnerHTML={ { __html: content.content.rendered } }></div>
         </div>
       }
     </div>

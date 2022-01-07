@@ -9,12 +9,16 @@
 
   &__name {
     color: $colorPrimary;
-    margin: 0;
+    margin: 0 0 0 -0.5rem;
     animation: fadeInLeft 1.5s ease 0.75s alternate forwards;
     opacity: 0;
 
     @media (max-width: '365px') {
       font-size: 5rem;
+    }
+
+    @media (min-width: '768px') {
+      margin: 0 0 0 -0.85rem;
     }
   }
 
