@@ -30,7 +30,7 @@ export default function ColumnNavigation() {
           icon={ faPlug }
           size='2x'
         />
-        <span>gutenplus plugin</span>
+        <span>blocksplus plugin</span>
       </Link>
     </nav>
   )

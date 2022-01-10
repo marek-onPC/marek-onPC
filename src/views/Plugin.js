@@ -18,7 +18,7 @@ export default function Plugin() {
   }, [])
 
   useEffect(() => {
-    document.title = 'gutenplus'
+    document.title = 'blocksplus'
 
     scrollToTop()
     fetchPluginPageJSON().then(data => {

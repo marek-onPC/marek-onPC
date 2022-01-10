@@ -74,7 +74,7 @@ export default function Navigation() {
               icon={ faPlug }
               size='2x'
             />
-            <span>gutenplus plugin</span>
+            <span>blocksplus plugin</span>
           </NavLink>
         </div>
       </nav>
