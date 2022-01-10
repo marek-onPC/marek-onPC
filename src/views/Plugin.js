@@ -18,7 +18,7 @@ export default function Plugin() {
   }, [])
 
   useEffect(() => {
-    document.title = 'gutenberg+'
+    document.title = 'gutenplus'
 
     scrollToTop()
     fetchPluginPageJSON().then(data => {

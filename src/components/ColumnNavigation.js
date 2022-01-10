@@ -30,7 +30,7 @@ export default function ColumnNavigation() {
           icon={ faPlug }
           size='2x'
         />
-        <span>gutenberg+ plugin</span>
+        <span>gutenplus plugin</span>
       </Link>
     </nav>
   )

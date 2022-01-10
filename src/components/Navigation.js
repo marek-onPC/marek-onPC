@@ -74,7 +74,7 @@ export default function Navigation() {
               icon={ faPlug }
               size='2x'
             />
-            <span>gutenberg+ plugin</span>
+            <span>gutenplus plugin</span>
           </NavLink>
         </div>
       </nav>
