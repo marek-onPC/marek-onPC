@@ -172,16 +172,16 @@
       width: auto;
       font-size: 1.8rem;
       text-decoration: none;
-      color: $colorText;
-      padding: 0.35rem 1.75rem;
-      margin: 0.5rem;
-      border-radius: 3.25rem;
-      background: rgba($colorSecondary, 0.2);
-      box-shadow: 0 0.1rem 0.25rem rgba($colorSecondary, 0.25);
+      color: $colorWhite;
+      padding: 0.75rem 1.75rem;
+      margin: 1.5rem;
+      border-radius: 2rem;
+      background: $colorPrimary;
       transition: background-color 0.2s ease;
       will-change: background-color;
 
       &:hover {
+        color: $colorWhite;
         background: rgba($colorPrimary, 0.85);
       }
   

@@ -3,19 +3,9 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: $colorWhite;
+  background-color: $colorPrimary;
   z-index: 10;
-
-  &::before {
-    position: absolute;
-    bottom: 0;
-    display: block;
-    content: "";
-    left: 0;
-    width: 100%;
-    border-bottom: 0.1rem solid rgba($color: $colorSecondary, $alpha: 0.5);
-    box-shadow: 0 0.15rem 0.25rem rgba(0, 0, 0, 0.35);
-  }
+  padding: 0.8rem 0.8rem 0 0.8rem;
 
   &__inner {
     position: relative;
@@ -33,7 +23,7 @@
     }
 
     @media (min-width: '768px') {
-      padding: 3rem 0;
+      padding: 1rem 0 1.75rem;
     }
   }
 
@@ -42,7 +32,7 @@
     top: 0;
     left: 1rem;
     letter-spacing: 0.5rem;
-    color: $colorPrimary;
+    color: $colorWhite;
     opacity: 0.75;
     margin: 0;
 
@@ -58,15 +48,11 @@
       left: 0;
     }
 
-    &.about,
     &.notes,
     &.note,
     &.plugin {
       opacity: 0;
       animation: contentFadeIn 0.3s ease alternate forwards;
-    }
-
-    &.plugin {
       font-size: 5rem;
 
       @media (min-width: '600px') {
@@ -76,7 +62,7 @@
 
       @media (min-width: '940px') {
         top: -2rem;
-        font-size: 8.2rem;
+        font-size: 5.5rem;
       }
     }
   }
@@ -86,6 +72,7 @@
 
     display: flex;
     align-items: center;
+    color: $colorWhite;
     padding: 0.5rem 0.75rem 0.4rem 0.7rem;
     margin: 0 1rem 1rem 0;
 
@@ -101,6 +88,8 @@
       width: 3rem;
       height: 3rem;
       border-radius: 2.5rem;
+      box-shadow: none;
+      background: none;
     }
 
     span {
@@ -114,14 +103,33 @@
     svg {
       width: 1.3rem !important;
       margin-left: 0.15rem;
+      color: $colorWhite;
+
     }
 
     &.active {
-      color: $colorText;
+      &::before {
+        width: 3rem;
+        background: $colorWhite;
+        box-shadow: none;
+      }
+
+      svg {
+        color: $colorText;
+      }
+    }
+
+    &:hover {
+      color: $colorWhite;
 
       &::before {
-        background: rgba($colorPrimary, 0.65);
-        box-shadow: 0 0.1rem 0.15rem rgba($colorSecondary, 0.25);
+        width: 3rem;
+        background: $colorWhite;
+        box-shadow: none;
+      }
+  
+      svg {
+        color: $colorText;
       }
     }
   }

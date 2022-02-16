@@ -26,19 +26,6 @@ export default function HomeHeader(props) {
         }
       </div>
       <div className='home-header__separator'></div>
-      <div className='home-header__icons'>
-        {
-          Object.values(props.icons).map((icon, index) =>
-            <FontAwesomeIcon
-              key={ index }
-              icon={ icon.icon }
-              color={ icon.color }
-              className={`icon icon-${index}`}
-              pull="left"
-            />
-          )
-        }
-      </div>
     </div>
   )
 }

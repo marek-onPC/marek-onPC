@@ -33,8 +33,8 @@
       will-change: background-color, box-shadow;
 
       &.active {
-        background: rgba($colorPrimary, 0.45);
-        box-shadow: 0 0.1rem 0.25rem rgba($colorSecondary, 0.25);
+        color: $colorWhite;
+        background: $colorPrimary;
       }
 
       &.skeleton {

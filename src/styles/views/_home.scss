@@ -1,8 +1,6 @@
 .home {
-  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   min-height: 100vh;
   padding: 0 1rem;
   margin: auto;
@@ -10,4 +8,212 @@
   @media (min-width: '768px') {
     padding: 0 2.5rem;
   }
+
+  &__welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100rem;
+    height: 85vh;
+    margin: auto;
+  }
+
+  &__scroll-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 1.5s ease 2s alternate forwards;
+
+    span {
+      color: rgba($color: $colorText, $alpha: 0.5);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      font-weight: 100;
+    }
+  
+    svg {
+      cursor: pointer;
+      transition: filter 0.3s ease, transform 0.3s ease;
+      will-change: filter, transform;
+      animation: scaleUpDown 0.85s ease alternate infinite;
+    
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__introduction {
+    &-title {
+      color: rgba($color: $colorText, $alpha: 0.2);
+      font-size: 10rem;
+      font-weight: 400;
+      text-align: left;
+      margin-bottom: 2rem;
+      opacity: 0;
+
+      @media (max-width: '768px') {
+        font-size: 5rem;
+      }
+    }
+
+    &-about {
+      opacity: 0;
+
+      p {
+        font-size: 3.2rem;
+        color: rgba($color: $colorText, $alpha: 0.9);
+
+        @media (max-width: '768px') {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  &__technologies {
+    &-title {
+      color: rgba($color: $colorText, $alpha: 0.15);
+      font-size: 10rem;
+      font-weight: 400;
+      text-align: right;
+      margin-bottom: 2rem;
+      opacity: 0;
+
+      @media (max-width: '768px') {
+        font-size: 5rem;
+      }
+    }
+
+    &-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 80rem;
+      margin: auto;
+
+      .icon {
+        font-size: 11em;
+        opacity: 0;
+        margin: 2.5rem 5rem;
+
+        @media (max-width: '768px') {
+          font-size: 9em;
+          margin: 1rem 2.5rem;
+        }
+
+        @media (max-width: '365px') {
+          font-size: 7em;
+        }
+      }
+    }
+  }
+
+
+  &__work {
+    &-title {
+      color: rgba($color: $colorText, $alpha: 0.2);
+      font-size: 10rem;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 2rem;
+      opacity: 0;
+
+      @media (max-width: '768px') {
+        font-size: 5rem;
+      }
+    }
+
+    &-buttons {
+      display: flex;
+      flex-direction: column;
+      max-width: 45rem;
+      opacity: 0;
+    }
+
+    &-button {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: $colorText;
+      font-size: 1.8rem;
+      margin: 1rem auto;
+      transition: color 0.2s ease;
+      will-change: color;
+      animation: fadeInLeft 1.5s ease 1.5s alternate forwards;
+      opacity: 0;
+  
+      @media (min-width: '768px') {
+        font-size: 2.2rem;
+      }
+  
+      &:hover {
+        color: rgba($color: $colorText, $alpha: 0.75);
+  
+        .icon {
+          color: rgba($color: $colorText, $alpha: 0.75);
+        }
+      }
+
+      &:nth-of-type(1) {
+        margin-left: 0;
+      }
+
+      &:nth-of-type(3) {
+        margin-right: 0;
+      }
+
+      span {
+        line-height: 2.25rem;
+        margin: -4rem 0 0 2rem;
+      }
+    }
+  }
+
+  #introduction {
+    &.active {
+      .home__introduction-title {
+        animation: fadeInRight 1.5s ease alternate forwards;
+      }
+
+      .home__introduction-about {
+        animation: fadeInLeft 1.5s ease alternate forwards;
+      }
+    }
+  }
+
+  #technologies {
+    &.active {
+      .home__technologies-title {
+        animation: fadeInRight 1.5s ease alternate forwards;
+      }
+
+      .icon {
+        animation: fadeInLeft 1.5s ease alternate forwards;
+
+        @for $i from 0 through 12 {
+          &.icon-#{$i} {
+            animation-delay: ($i * (0.2s));
+          }
+        }
+      }
+    }
+  }
+
+  #work {
+    &.active {
+      .home__work-title {
+        animation: fadeInRight 1.5s ease alternate forwards;
+      }
+
+      .home__work-buttons {
+        animation: fadeInBottom 1.5s ease alternate forwards;
+      }
+    }
+  }
 }
+

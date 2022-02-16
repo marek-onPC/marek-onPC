@@ -1,19 +1,4 @@
 html {
-  scrollbar-color: $colorSecondary $colorPrimary;
-  scrollbar-width: thin;
-
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: $colorSecondary;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: $colorPrimary;
-  }
-  
   overflow-y: scroll;
 
   &.home-page {
@@ -21,21 +6,64 @@ html {
   }
 }
 
+body {
+  &::after, 
+  &::before {
+    content: " ";
+    position: fixed;
+    width: calc(100% - 1.6rem);
+    height: 0.8rem;
+    left: 0.8rem;
+    z-index: 1001;
+    background-color: $colorPrimary;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  &::before {
+    top: 0;
+  }
+}
+
+main {
+  &::after, 
+  &::before {
+    content: " ";
+    position: fixed;
+    width: 0.8rem;
+    height: 100%;
+    top: 0;
+    z-index: 1001;
+    background-color: $colorPrimary;
+  }
+
+  &::after {
+    right: 0;
+  }
+
+  &::before {
+    left: 0;
+  }
+}
+
+main {
+  padding: 1.6rem;
+}
+
 .container {
   position: relative;
   max-width: 100rem;
-  min-height: calc(100vh - 24rem);
   padding: 0 1.5rem;
   margin: 19rem auto 5rem;
 
   @media (min-width: '521px') {
-    min-height: calc(100vh - 22.25rem);
     margin: 14.75rem auto 7.5rem;
   }
 
   @media (min-width: '768px') {
-    min-height: calc(100vh - 25rem);
-    margin: 15rem auto 10rem;
+    margin: 10rem auto 10rem;
     padding: 0 2rem;
   }
   
