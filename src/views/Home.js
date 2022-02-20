@@ -102,7 +102,7 @@ export default function Home() {
     }
   }
 
-  function scrollToTech() {
+  function scrollToIntro() {
     const sectionTechOffset = document.getElementById('introduction').getBoundingClientRect().top + document.documentElement.scrollTop
 
     setTimeout(function() {
@@ -117,7 +117,7 @@ export default function Home() {
   function sectionToShow(section) {
     var sectionTop = section.getBoundingClientRect().top;
     var sectionBottom = section.getBoundingClientRect().bottom;
-    var isVisible = sectionTop < (window.innerHeight - (window.innerHeight/2)) && (sectionBottom - (window.innerHeight/2)) >= 0;
+    var isVisible = sectionTop < (window.innerHeight - (window.innerHeight/2.5)) && (sectionBottom - (window.innerHeight/2.5)) >= 0;
 
     if (isVisible) {
       section.classList.add('active')
@@ -148,13 +148,15 @@ export default function Home() {
           social={ social }
         />
 
-        <div className='home__scroll-bottom'>
+        <div
+          className='home__scroll-bottom'
+          onClick={ () => { scrollToIntro() } }
+        >
           <span>scroll bottom</span>
           <FontAwesomeIcon
             icon={ faChevronDown }
             color={ '#00B0FF' }
-            size='3x'
-            onClick={ () => { scrollToTech() } }
+            size='2x'
           />
         </div>
       </div>
@@ -163,7 +165,7 @@ export default function Home() {
         <h2 className='home__introduction-title'>introduction</h2>
         <div className='home__introduction-about container mt-5'>
           <p className='text-center'>
-            <sup style={{ opacity: 0.8, fontWeight: '100' }}>
+            <sup style={{ opacity: 0.8, fontWeight: '600' }}>
               <span style={{ color: '#777' }}>&lt;</span>
               <span style={{ color: '#277dff' }}>name</span>
               <span style={{ color: '#777' }}>&gt;</span> 
@@ -172,7 +174,7 @@ export default function Home() {
             <span>&nbsp;&nbsp;marek smieja&nbsp;&nbsp;</span>
           </p>
           <p className='text-center'>
-            <sup style={{ opacity: 0.8, fontWeight: '100' }}>
+            <sup style={{ opacity: 0.8, fontWeight: '600' }}>
               <span style={{ color: '#777' }}>&lt;</span>
               <span style={{ color: '#277dff' }}>position</span>
               <span style={{ color: '#777' }}>&gt;</span> 
@@ -181,7 +183,7 @@ export default function Home() {
             <span>&nbsp;&nbsp;frontend dev&nbsp;&nbsp;</span>
           </p>
           <p className='text-center'>
-            <sup style={{ opacity: 0.8, fontWeight: '100' }}>
+            <sup style={{ opacity: 0.8, fontWeight: '600' }}>
               <span style={{ color: '#777' }}>&lt;</span>
               <span style={{ color: '#277dff' }}>location</span>
               <span style={{ color: '#777' }}>&gt;</span> 
@@ -190,7 +192,7 @@ export default function Home() {
             <span>&nbsp;&nbsp;japan&nbsp;&nbsp;</span>
           </p>
           <p className='text-center'>
-            <sup style={{ opacity: 0.8, fontWeight: '100' }}>
+            <sup style={{ opacity: 0.8, fontWeight: '600' }}>
               <span style={{ color: '#777' }}>&lt;</span>
               <span style={{ color: '#277dff' }}>description</span>
               <span style={{ color: '#777' }}>&gt;</span> 
@@ -232,7 +234,6 @@ export default function Home() {
             >
               <FontAwesomeIcon
                 icon={ faGithub }
-                color="#000"
                 size='3x'
               />
               <span>github</span>

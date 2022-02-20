@@ -27,6 +27,7 @@
     z-index: 10;
     opacity: 0;
     animation: fadeIn 1.5s ease 2s alternate forwards;
+    cursor: pointer;
 
     span {
       color: rgba($color: $colorText, $alpha: 0.5);
@@ -36,7 +37,6 @@
     }
   
     svg {
-      cursor: pointer;
       transition: filter 0.3s ease, transform 0.3s ease;
       will-change: filter, transform;
       animation: scaleUpDown 0.85s ease alternate infinite;
@@ -49,7 +49,7 @@
 
   &__introduction {
     &-title {
-      color: rgba($color: $colorText, $alpha: 0.2);
+      color: rgba($color: $colorText, $alpha: 0.3);
       font-size: 10rem;
       font-weight: 400;
       text-align: left;
@@ -77,7 +77,7 @@
 
   &__technologies {
     &-title {
-      color: rgba($color: $colorText, $alpha: 0.15);
+      color: rgba($color: $colorText, $alpha: 0.3);
       font-size: 10rem;
       font-weight: 400;
       text-align: right;
@@ -116,7 +116,7 @@
 
   &__work {
     &-title {
-      color: rgba($color: $colorText, $alpha: 0.2);
+      color: rgba($color: $colorText, $alpha: 0.3);
       font-size: 10rem;
       font-weight: 400;
       text-align: center;
