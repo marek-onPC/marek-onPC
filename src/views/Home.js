@@ -228,7 +228,7 @@ export default function Home() {
         <div className='home__work-buttons container mt-5'>
             <a
               className='home__work-button'
-              href="github.com"
+              href="https://github.com/marek-onPC"
               target="_blank"
               rel="noreferrer"
             >
