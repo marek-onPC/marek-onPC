@@ -23,7 +23,6 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
   faChevronDown,
-  faHashtag,
   faStickyNote,
   faPlug
 } from '@fortawesome/free-solid-svg-icons';
@@ -93,12 +92,6 @@ export default function Home() {
       'color' : '#212121',
       'title' : 'LinkedIn',
       'link' : 'https://www.linkedin.com/in/marek-smieja/'
-    },
-    faHashtag: {
-      icon : faHashtag,
-      'color' : '#212121',
-      'title' : 'Wantedly',
-      'link' : 'https://www.wantedly.com/id/smieja_marek'
     }
   }
 
